@@ -1,0 +1,27 @@
+<div class="container">
+  <%# <div id="event-button">
+    <%= link_to "Create a Event", new_event_path, class: "btn btn-primary" %>
+  <%# </div> %>
+  <div class="paperworkers">
+    <% @paperworkers.each do |paperworker| %>
+    <%= link_to user_path(paperworker) do%>
+    <div id="card-event-id" class="card-event">
+      <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-event-headline">
+            <h3>
+              <%= user.name %>
+            </h3>
+            <p> $ <%=paperworker.rate%>/h</p>
+          </div>
+          <div class="card-event-infos">
+            <p><strong>Languages:</strong> <%= paperworker.languages %></p>
+            <p><strong>Districts:</strong> <%= paperworker.district %></p>
+          </div>
+          <div class="card-event-infos">
+            <p><strong>Services:</strong> <%= paperworker.services %></p>
+          </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
