@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :appointments, dependent: :destroy
+  has_many :appointments_as_immigrant, class_name: "Appointment", foreign_key: :immigrant_id, dependent: :destroy
+  has_many :appointments_as_paperworker, class_name: "Appointment", foreign_key: :paperworker_id, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :messages, dependent: :destroy
   enum :role, [:paperworker, :immigrant]
