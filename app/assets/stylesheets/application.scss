@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/navbar";
+@import "components/footer";
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
