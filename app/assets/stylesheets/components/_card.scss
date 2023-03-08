@@ -15,17 +15,15 @@
 .card-event {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 10px;
   border-radius: 10px;
+  border: solid $mainblue 2px;
 }
 
-#card-event-id {
-  border: solid white 5px;
-}
 #card-event-id:hover {
   // transform: scale(1.1);
-  border: solid var(--darkbrown) 5px;
+  border: solid $darkblue 3px;
+
 }
 
 .card-event > img {
@@ -39,7 +37,6 @@
   font-weight: bold;
   margin: 0;
   text-decoration: none;
-  color: black;
   font-size: larger;
 }
 
@@ -48,7 +45,6 @@
   opacity: .7;
   margin: 0;
   text-decoration: none;
-  color: black;
   font-size: medium;
 }
 
