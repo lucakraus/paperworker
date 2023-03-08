@@ -10,4 +10,10 @@ class UsersController < ApplicationController
     @paperworkers = @paperworkers.select { |paperworker| paperworker.district.include?(params[:district]) } if params[:district].present?
     @paperworkers = @paperworkers.select { |paperworker| paperworker.services.include?(params[:services]) } if params[:services].present?
   end
+
+  def show
+    @paperworker = User.paperworker.find(params[:id])
+    
+  end
+
 end
