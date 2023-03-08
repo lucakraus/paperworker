@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render "shared/filter" %>
   <%# <div id="event-button">
     <%= link_to "Create a Event", new_event_path, class: "btn btn-primary" %>
   <%# </div> %>
@@ -6,19 +7,23 @@
     <% @paperworkers.each do |paperworker| %>
     <%= link_to user_path(paperworker) do%>
     <div id="card-event-id" class="card-event">
-      <%= cl_image_tag event.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <%= cl_image_tag paperworker.photo.key, height: 300, width: 400, crop: :fill %>
+      <%=image_tag "worker.jpg"%>
           <div class="card-event-headline">
             <h3>
-              <%= user.name %>
+              <%= paperworker.name %>
             </h3>
             <p> $ <%=paperworker.rate%>/h</p>
           </div>
           <div class="card-event-infos">
-            <p><strong>Languages:</strong> <%= paperworker.languages %></p>
-            <p><strong>Districts:</strong> <%= paperworker.district %></p>
+            <p><strong>Languages:</strong> <%= paperworker.languages.join(", ") %></p>
+
           </div>
           <div class="card-event-infos">
-            <p><strong>Services:</strong> <%= paperworker.services %></p>
+            <p><strong>Districts:</strong> <%= paperworker.district.join(", ") %></p>
+          </div>
+          <div class="card-event-infos">
+            <p><strong>Services:</strong> <%= paperworker.services.join(", ") %></p>
           </div>
     </div>
     <% end %>

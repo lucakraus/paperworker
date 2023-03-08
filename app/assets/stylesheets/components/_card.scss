@@ -1,0 +1,72 @@
+.container {
+  max-width: 1300px;
+  margin: 20px auto;
+}
+
+.paperworkers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.paperworkers a {
+  text-decoration: none;
+}
+
+.card-event {
+  overflow: hidden;
+  background: white;
+  margin: 10px;
+  border-radius: 10px;
+  border: solid $mainblue 2px;
+}
+
+#card-event-id:hover {
+  // transform: scale(1.1);
+  border: solid $darkblue 3px;
+
+}
+
+#card-event-id img {
+  height: 200px;
+  width: 100%px;
+//  object-fit: cover;
+}
+
+.card-event h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-decoration: none;
+  font-size: larger;
+}
+
+.card-event p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  text-decoration: none;
+  font-size: medium;
+}
+
+
+.card-event .card-event-infos {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-event .card-event-headline {
+  padding: 15px 10px 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+
+
+.card-event .card-event-infos a {
+  text-decoration: none;
+}

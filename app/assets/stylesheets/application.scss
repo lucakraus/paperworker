@@ -12,8 +12,21 @@
 @import "pages/index";
 @import "components/navbar";
 @import "components/footer";
+@import "components/card";
+@import "components/filter";
+@import "components/calender";
 
 body {
   position: relative;
   min-height: 100vh;
+  color: $darkblue;
+  background-color: white;
+}
+
+.min-height {
+  min-height: 80vh;
+}
+
+p,h1,h2,h3,h4,h5{
+  color: #081121;
 }
