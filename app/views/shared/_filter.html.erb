@@ -1,15 +1,19 @@
-<%= form_with url: users_path, method: :get do |form| %>
-  <div class="field">
-    <%= form.label :languages %>
-    <%= form.select :languages, options_for_select(User::LANGUAGES), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= form.label :district %>
-    <%= form.select :district, options_for_select(User::DISTRICT), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= form.label :services %>
-    <%= form.select :services, options_for_select(User::SERVICES), include_blank: true %>
-  </div>
-  <%= form.submit "Filter" %>
-<% end %>
+<div class="form">
+  <%= form_with url: users_path, method: :get do |form| %>
+    <div class="field">
+      <%= form.label :languages %>
+      <%= form.select :languages, options_for_select(User::LANGUAGES), include_blank: true %>
+    </div>
+    <div class="field">
+      <%= form.label :district %>
+      <%= form.select :district, options_for_select(User::DISTRICT), include_blank: true %>
+    </div>
+    <div class="field">
+      <%= form.label :services %>
+      <%= form.select :services, options_for_select(User::SERVICES), include_blank: true %>
+    </div>
+    <div class="filter-button">
+      <%= form.submit "Filter" %>
+    </div>
+  <% end %>
+</div>
