@@ -29,3 +29,4 @@ immigrant_cristobal = User.create!(email: "cris.cris@gmail.com", password: "1234
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Cris_npulji.jpg")
 #immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_cristobal.save
+
