@@ -4,4 +4,5 @@ class Appointment < ApplicationRecord
   belongs_to :paperworker, class_name: "User"
   belongs_to :immigrant, class_name: "User"
   enum :status, [:pending, :accepted, :declined]
+  validates :date, presence: true
 end
