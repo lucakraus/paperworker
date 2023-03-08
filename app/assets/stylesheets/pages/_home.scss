@@ -5,10 +5,10 @@
   padding: 150px 0;
   background-color: #081121;
   color: #fff;
-}
 
 h1, p{
   color: white;
+}
 }
 
 .blue-btn {
@@ -27,6 +27,10 @@ h1, p{
 
 .btn {
   margin-right: 10px;
+  display: inline-block;
+  width: 250px;
+  text-align: center;
+  height: 50px;
 }
 
 .blue-btn:hover {
@@ -53,12 +57,14 @@ h1, p{
   width: calc(33.33% - 10px);
   margin-right: 10px;
   color: #081121;
-}
+  border-radius: 5px;
 
-  h3 {
-    position: center;
+
+  h3, p {
+    text-align: center;
+    color: #081121;
   }
-
+}
 
 
 // Smallest device
