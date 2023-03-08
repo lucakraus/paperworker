@@ -10,7 +10,13 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   enum :role, [:paperworker, :immigrant]
   validates :name, :languages, :services, :rate, :role, presence: true
-  validates :services, inclusion: ["translation", "legal", "appointment"]
+  # validates :services, inclusion: SERVICES
+
+  SERVICES = ["translation", "legal", "appointment"].sort
+  LANGUAGES = ["English", "Spanish", "French", "Arabic", "Persian", "Portuguese", "Chinese", "Japanese", "Korean", "Pashto", "Swahili", "Hindi", "Russian", "Polish", "Ukrainian", "Turkish"].sort
+  DISTRICT = ["Mitte", "Reinickendorf", "Pankow", "Friedrichshain-Kreuzberg", "Treptow-Köpenick", "Lichtenberg", "Marzahn-Hellersdorf", "Neukölln", "Tempelhof-Schöneberg", "Steglitz-Zehlendorf", "Charlottenburg-Wilmersdorf", "Spandau"].sort
 end
 # current_user.paperworker?
 # User.paperworker
+
+# collestion: User::SERVICES
