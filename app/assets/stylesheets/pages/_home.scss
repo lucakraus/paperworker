@@ -4,6 +4,7 @@
   background-position: center;
   padding: 150px 0;
   background-color: #081121;
+  color: #fff;
 }
 
 h1, p{
@@ -51,16 +52,13 @@ h1, p{
   padding: 20px;
   width: calc(33.33% - 10px);
   margin-right: 10px;
-}
-
-h3 {
-  color: #081121;
-  position: center;
-}
-
-p {
   color: #081121;
 }
+
+  h3 {
+    position: center;
+  }
+
 
 
 // Smallest device
