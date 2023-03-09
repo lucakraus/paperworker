@@ -1,5 +1,5 @@
 
-<div class="">
+<div class="form">
   <%= simple_form_for(:filter, url: users_path, method: :get) do |form| %>
     <div class="field">
       <%= form.input :languages, collection: User::LANGUAGES, class: "filter" %>
