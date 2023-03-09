@@ -96,5 +96,5 @@ paper_worker_conor_mcgregor.save
 
 paper_worker_michael_schumacher = User.create!(email: "michael.michael@gmail.com", password: "123456", role: 0, name: "Michael Schumacher", languages: ["German", "Portuguese", "Turkish", "Swahili"], services: ["legal"], rate: "200€ p/h", district: ["Pankow"], description: "Professional procrastinator seeking someone to watch Netflix with. I have a PhD in sarcasm and a black belt in dad jokes")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678378114/paperw%C3%B6rker/profile%20pictures/michael_schumacher_j2z00l.jpg")
-paper_worker_conor_mcgregor.photo.attach(io: file, filename: "michael_schumacher.jpeg", content_type: "image/jpeg")
-paper_worker_conor_mcgregor.save
+paper_worker_michael_schumacher.photo.attach(io: file, filename: "michael_schumacher.jpeg", content_type: "image/jpeg")
+paper_worker_michael_schumacher.save
