@@ -7,17 +7,23 @@
     <% @paperworkers.each do |paperworker| %>
     <%= link_to user_path(paperworker) do%>
     <div id="card-event-id" class="card-event">
-      <%= cl_image_tag paperworker.photo.key, height: 300, width: 400, crop: :fill %>
+
       <%# <%=image_tag "worker.jpg"%>
+        <div class="card-image-headline">
           <div class="card-event-headline">
+            <%= cl_image_tag paperworker.photo.key, class: "profile-image"%>
+          </div>
+          <div id="name" class="card-event-headline">
             <h3>
               <%= paperworker.name %>
             </h3>
+          </div>
+        </div>
+          <div class="card-event-infos">
             <p> $ <%=paperworker.rate%>/h</p>
           </div>
           <div class="card-event-infos">
             <p><strong>Languages:</strong> <%= paperworker.languages.join(", ") %></p>
-
           </div>
           <div class="card-event-infos">
             <p><strong>Districts:</strong> <%= paperworker.district.join(", ") %></p>
