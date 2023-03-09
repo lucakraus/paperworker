@@ -2,28 +2,44 @@
   <div class="card-db">
 
     <div class="row border border-2" style="min-height: 160px">
-
       <div class="col-2 border border-primary rounded-3 shadow">
         <p><%= current_user.name %></p>
         <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Luca_dwzaly.jpg" class="rounded-circle img-fluid img-thumbnail " >
-      </div> <!-- Take 4 columns -->
-      <div class="col-10 border border-primary rounded-3 shadow">
-        <p>About me</p>
-        <p>Hi I'm Luca, a web developer passionate about creating engaging and dynamic websites. In my free time, I love to go for a run and explore new trails. Helping people is important to me, and I always try to find ways to give back to my community. And, of course, I can never resist a good bowl of muesli!</p>
-      </div> <!-- Take 8 columns -->
-    </div>
+          </div> <!-- Take 4 columns -->
+            <div class="col-10 border border-primary rounded-3 shadow">
+              <p>About me</p>
+              <p>Hi I'm Luca, a web developer passionate about creating engaging and dynamic websites. In my free time, I love to go for a run and explore new trails. Helping people is important to me, and I always try to find ways to give back to my community. And, of course, I can never resist a good bowl of muesli!</p>
+            </div> <!-- Take 8 columns -->
+          </div>
 
+    #if the current_user is immigrant do the following
     <div class="row border border-2" style="min-height: 160px">
       <div class="col-12 border border-primary rounded-3 shadow">
-        <p>Requests</p>
+            <p>Requests</p>
         <div class="col-2 border border-primary rounded-3 shadow">
-        <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Akram_pamnuq.jpg" class="rounded-circle img-fluid img-thumbnail " >
-        <button class="btn btn-warning border rounded-3 shadow mx-auto" style="width: 200px;"> Requests pending </button>
-        <button class="btn btn-primary border rounded-3 shadow mx-auto" style="width: 200px;"> Start chatting </button>
-      </div>
-
+              <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Akram_pamnuq.jpg" class="rounded-circle img-fluid img-thumbnail">
+          <div class="col-10 border border-primary rounded-3 shadow">
+              <button class="btn btn-warning border rounded-3 shadow mx-auto" style="width: 200px;"> Requests pending <%= @Appointments.confirm %> </button>
+              <button class="btn btn-primary border rounded-3 shadow mx-auto" style="width: 200px;"> Start chatting </button>
+          </div>
+        </div>
       </div>
     </div>
+    #if the current_user is paperworker do the following
+    div class="row border border-2" style="min-height: 160px">
+      <div class="col-12 border border-primary rounded-3 shadow">
+            <p>Requests</p>
+
+        <div class="col-2 border border-primary rounded-3 shadow">
+              <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Akram_pamnuq.jpg" class="rounded-circle img-fluid img-thumbnail">
+          <div class="col-10 border border-primary rounded-3 shadow">
+              <button class="btn btn-warning border rounded-3 shadow mx-auto" style="width: 200px;"> Requests pending </button>
+              <button class="btn btn-primary border rounded-3 shadow mx-auto" style="width: 200px;"> Start chatting </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="row border border-2" style="min-height: 160px" >
       <div class="col-12 border border-primary rounded-3 shadow">

@@ -21,6 +21,17 @@ class AppointmentsController < ApplicationController
     @message = Message.new
   end
 
+  def confirm
+    @appointment = Appointment.find(params[:appointment_id])
+    if @appointment.status ?  confirm : decline
+    @appointment.save
+    redirect_to user_path(@appointment.paperworker)
+  end
+
+  def cancel
+
+  end
+
   private
 
   def appointment_params
