@@ -7,8 +7,8 @@
     <% @paperworkers.each do |paperworker| %>
     <%= link_to user_path(paperworker) do%>
     <div id="card-event-id" class="card-event">
-      <%# <%= cl_image_tag paperworker.photo.key, height: 300, width: 400, crop: :fill %>
-      <%=image_tag "worker.jpg"%>
+      <%= cl_image_tag paperworker.photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <%=image_tag "worker.jpg"%>
           <div class="card-event-headline">
             <h3>
               <%= paperworker.name %>
