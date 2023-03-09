@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
 
   def confirm
     @appointment = Appointment.find(params[:appointment_id])
-    if @appointment.status ?  confirm : decline
+    @appointment.status ?  confirm : decline
     @appointment.save
     redirect_to user_path(@appointment.paperworker)
   end
