@@ -1,14 +1,26 @@
 
 .form {
   display: flex;
-  border: solid black 4px;
+  justify-content: center;
   width: 1200px;
 }
 
 .filter {
   width: 300px;
+  background-color: $white;
+  border: solid $lightblue 2px;
 }
 
 .field {
   width: 300px;
+  margin: 5px;
+}
+
+.filter-button {
+  color: white;
+  background-color: $mainblue;
+  padding: 8px 50px;
+  margin: 35px 0px 0px 0px;
+  border: none;
+  border-radius: 10px;
 }
