@@ -1,7 +1,7 @@
-<div class="container py-4">
+<div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-        <div class="paperworker d-flex justify-content-center space-between">
+        <div class="paperworker">
           <div>
             <%= image_tag "worker.jpg", class: 'worker' %>
           </div>
@@ -9,19 +9,19 @@
             <h2><%= @paperworker.name %></h2> <p>$<%= @paperworker.rate %></p>
 
             <p><strong>Languages:</strong>
-            <%= @paperworker.languages.join(", ") %></p>
+            <%= @paperworker.languages %></p>
 
             <p><strong>Service:</strong>
-            <%= @paperworker.services.join(", ") %></p>
+            <%= @paperworker.services %></p>
 
             <p><strong>District:</strong>
-            <%= @paperworker.district.join(", ") %></p>
+            <%= @paperworker.district %></p>
           </div>
         </div>
 
           <% if @requested %>
             <h2><em><strong> Your request has been sent! </strong></em></h2>
-            <h4><em><strong><%= @appointment.date.strftime("%d.%m.%Y") %></strong></em></h4>
+            <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p>
           <% else  %>
             <%= simple_form_for [@paperworker, @appointment] do |f| %>
                   <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 } %>
