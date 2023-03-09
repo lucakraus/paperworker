@@ -3,7 +3,7 @@
     <div class="col-12 col-md-6 offset-lg-3">
         <div class="paperworker">
           <div>
-            <%= image_tag "worker.jpg", class: 'worker' %>
+            <%= image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill %>
           </div>
           <div class="paperworker-infos">
             <h2><%= @paperworker.name %></h2> <p>$<%= @paperworker.rate %></p>
