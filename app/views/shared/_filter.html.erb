@@ -1,6 +1,6 @@
 
-<div class="">
-  <%= simple_form_for(:filter, url: users_path, method: :get) do |form| %>
+<div class="form">
+  <%= simple_form_for(:filter, url: users_path, method: :get, :html => { :class => "form-horizontal" }, wrapper: :horizontal_form) do |form| %>
     <div class="field">
       <%= form.input :languages, collection: User::LANGUAGES, class: "filter" %>
     </div>

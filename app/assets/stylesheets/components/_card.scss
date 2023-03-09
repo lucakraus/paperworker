@@ -14,10 +14,12 @@
 
 .card-event {
   overflow: hidden;
-  background: white;
+  background: $lightblue;
   margin: 10px;
-  border-radius: 10px;
-  border: solid $mainblue 2px;
+  border-radius: 15px;
+  border: solid white 5px;
+  height: 450px;
+
 }
 
 #card-event-id:hover {
