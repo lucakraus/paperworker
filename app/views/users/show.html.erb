@@ -1,41 +1,35 @@
-<div class="container justify-content-center">
-  <div class="paperworker">
-    <div>
-      <%= image_tag "worker.jpg", class: 'worker' %>
-    </div>
-    <div class="paperworker-headline ">
-      <h2><%= @paperworker.name %></h2> <p>$<%= @paperworker.rate %></p>
-    </div>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+        <div class="paperworker">
+          <div>
+            <%= image_tag "worker.jpg", class: 'worker' %>
+          </div>
+          <div class="paperworker-infos">
+            <h2><%= @paperworker.name %></h2> <p>$<%= @paperworker.rate %></p>
 
-    <div class="paperworker-infos">
-      <p><strong>Languages:</strong>
-      <%= @paperworker.languages %></p>
+            <p><strong>Languages:</strong>
+            <%= @paperworker.languages %></p>
 
-      <p><strong>Service:</strong>
-      <%= @paperworker.services %></p>
+            <p><strong>Service:</strong>
+            <%= @paperworker.services %></p>
 
-      <p><strong>District:</strong>
-      <%= @paperworker.district %></p>
+            <p><strong>District:</strong>
+            <%= @paperworker.district %></p>
+          </div>
+        </div>
+
+          <% if @requested %>
+            <h2><em><strong> Your request has been sent! </strong></em></h2>
+            <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p>
+          <% else  %>
+            <%= simple_form_for [@paperworker, @appointment] do |f| %>
+                  <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 } %>
+                  <%= f.input :services, collection: %w"translation legal appointment" %>
+                  <%= f.input :date, as: :date, html5: true %>
+                  <%= f.button :submit, class: "btn btn-primary" %>
+                  <% end %>
+          <% end %>
     </div>
   </div>
-
-  <div class="text">
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-            dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-            sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-            voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-            Molestias explicabo corporis voluptatem?</p>
-  </div>
-
-
-    <% if @requested %>
-      <h2><em><strong> Your appointment has been made. Congrats! </strong></em></h2>
-      <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p>
-    <% else  %>
-      <%= simple_form_for [@paperworker, @appointment] do |f| %>
-            <%= f.input :date, as: :date, html5: true %>
-            <%= f.button :submit, class: "btn btn-back" %>
-            <% end %>
-    <% end %>
-
 </div>
