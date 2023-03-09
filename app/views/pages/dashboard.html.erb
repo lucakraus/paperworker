@@ -45,7 +45,10 @@
       <div class="col-12 border border-primary rounded-3 shadow">
         <div class="py-auto">
           <p>Appointments</p>
-
+          <% @appointments.each do |appointment| %>
+            <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
+            <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
