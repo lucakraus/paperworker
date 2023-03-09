@@ -25,7 +25,7 @@
           <% else  %>
             <%= simple_form_for [@paperworker, @appointment] do |f| %>
                   <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 } %>
-                  <%= f.input :services, collection: %w"translation legal appointment" %>
+                  <%= f.input :service, collection: @paperworker.services %>
                   <%= f.input :date, as: :date, html5: true %>
                   <%= f.button :submit, class: "btn btn-primary" %>
                   <% end %>
