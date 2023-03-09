@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :appointments, only: [:new, :create]
   end
+  resources :appointments, only: [] do
+    get :chat
+  end
   # Defines the root path route ("/")
   # root "articles#index"
   get "/dashboard", to: "pages#dashboard"
