@@ -1,35 +1,39 @@
 <div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-        <div class="paperworker">
-          <div>
-            <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill %>
-          </div>
-          <div class="paperworker-infos">
-            <h2><%= @paperworker.name %></h2> <p>$<%= @paperworker.rate %></p>
+  <div class="row px-3">
+    <div class="col-6 px-5 bg-white py-5">
+      <div class="paperworker-image py-2">
+        <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="paperworker-infos">
+        <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate %></strong></p>
 
-            <p><strong>Languages:</strong>
-            <%= @paperworker.languages %></p>
+        <p><strong>Languages:   </strong>
+        <%= @paperworker.languages.join(',') %></p>
 
-            <p><strong>Service:</strong>
-            <%= @paperworker.services %></p>
+        <p><strong>Service:   </strong>
+        <%= @paperworker.services.join(',') %></p>
 
-            <p><strong>District:</strong>
-            <%= @paperworker.district %></p>
-          </div>
-        </div>
-
-          <% if @requested %>
-            <h2><em><strong> Your request has been sent! </strong></em></h2>
-            <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p>
-          <% else  %>
-            <%= simple_form_for [@paperworker, @appointment] do |f| %>
-                  <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 } %>
-                  <%= f.input :service, collection: @paperworker.services %>
-                  <%= f.input :date, as: :date, html5: true %>
-                  <%= f.button :submit, class: "btn btn-primary" %>
-                  <% end %>
-          <% end %>
+        <p><strong>District:   </strong>
+        <%= @paperworker.district.join(',') %></p>
+      </div>
+      <div>
+        <%= @paperworker.description %>
+      </div>
+    </div>
+    <div class="col-6 px-5 py-5 d-flex flex-column align-items-center justify-content-around bg-white ml-5">
+      <% if @requested %>
+        <h2><em><strong> Your request has been sent on:
+        <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p> </strong></em></h2>
+      <% else  %>
+      <h2><em>Book your appointment now:</em></h2>
+        <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100"} do |f| %>
+          <small>Add a note</small>
+          <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
+          <%= f.input :service, collection: @paperworker.services %>
+          <%= f.input :date, as: :date, html5: true %>
+          <%= f.button :submit, "Send your Request", class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
