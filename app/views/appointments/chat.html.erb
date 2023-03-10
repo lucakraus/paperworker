@@ -1,5 +1,6 @@
+<div class = "container">
 <div class ="container chat">
-  <h1>Send a message to <%= @appointment.paperworker.name %></h1>
+  <h3>Send a message to <%= @appointment.paperworker.name %></h3>
 
   <div class = "messages">
     <% @appointment.messages.each do |message| %>
@@ -22,6 +23,7 @@
       placeholder: "Message ##{@appointment.paperworker.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.submit "Send", class: "btn2 btn-primary mb-3" %>
   <% end %>
+</div>
 </div>

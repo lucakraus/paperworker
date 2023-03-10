@@ -1,13 +1,15 @@
-.chatroom {
+.chat{
   background: white;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: calc(90vh - 75px);
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  border-radius: 10px;
 
-  h1 {
+  h3 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
@@ -26,5 +28,16 @@
     .form-group {
       margin-bottom: 0;
     }
+  }
+
+  .flex-grow-1{
+    height: 50;
+  }
+
+  .btn2{
+    width: 150px;
+    height: 45px;
+    color: white;
+    margin-left: 8px;
   }
 }
