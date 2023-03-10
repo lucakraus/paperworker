@@ -1,0 +1,20 @@
+    <div class="profile-info">
+      <div>
+        <%= cl_image_tag @user.photo.key, class: "image-dashboard"%>
+      </div>
+      <div>
+      <% if @user.paperworker? %>
+        <h2><%= @user.name%></h2>
+        <p><%= @user.rate%></p>
+        <p><strong>Languages:</strong> <%= @user.languages.join(", ")%></p>
+        <p><strong>Districts:</strong> <%= @user.district.join(", ")%></p>
+        <p><strong>Services:</strong> <%= @user.services.join(", ")%></p>
+        <p><strong>Description:</strong> <%= @user.description%></p>
+      <% else %>
+        <h2><%= @user.name%></h2>
+        <p><strong>Languages:</strong> <%= @user.languages.join(", ")%></p>
+        <p><strong>Services:</strong> <%= @user.services.join(", ")%></p>
+        <p><strong>Description:</strong> <%= @user.description%></p>
+      <% end %>
+      </div>
+    </div>

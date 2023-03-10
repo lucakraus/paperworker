@@ -1,3 +1,30 @@
-.card-db {
-  
+.image-dashboard {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.dashboard {
+  display:  grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.profile-info {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-info h2 {
+  margin: 30px auto 30px auto;
+}
+
+.appointments {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  height: 300px;
 }
