@@ -12,40 +12,36 @@
             </div> <!-- Take 8 columns -->
           </div>
 
-    #if the current_user is immigrant do the following
+    <%# #if the current_user is immigrant do the following %>
     <div class="row border border-2" style="min-height: 160px">
       <div class="col-12 border border-primary rounded-3 shadow">
             <p>Requests</p>
-        <div class="col-2 border border-primary rounded-3 shadow">
-              <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Akram_pamnuq.jpg" class="rounded-circle img-fluid img-thumbnail">
-          <div class="col-10 border border-primary rounded-3 shadow">
-              <button class="btn btn-warning border rounded-3 shadow mx-auto" style="width: 200px;"> Requests pending </button>
-              <button class="btn btn-primary border rounded-3 shadow mx-auto" style="width: 200px;"> Start chatting </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    #if the current_user is paperworker do the following
-    div class="row border border-2" style="min-height: 160px">
-      <div class="col-12 border border-primary rounded-3 shadow">
-            <p>Requests</p>
+          <% @appointments.pending.each do |appointment| %>
+<% if current_user.paperworker?  %>
+<%= simple_form_for(appointment, method: :patch) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+              <%= f.submit "Accept", class: "btn btn-success" %>
+            <% end %>
 
-        <div class="col-2 border border-primary rounded-3 shadow">
-              <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Akram_pamnuq.jpg" class="rounded-circle img-fluid img-thumbnail">
-          <div class="col-10 border border-primary rounded-3 shadow">
-              <button class="btn btn-warning border rounded-3 shadow mx-auto" style="width: 200px;"> Requests pending </button>
-              <button class="btn btn-primary border rounded-3 shadow mx-auto" style="width: 200px;"> Start chatting </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            <%= simple_form_for(appointment, method: :patch) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+              <%= f.submit "Declined", class: "btn btn-danger" %>
+            <% end %>
+<% else %>
+<p> Request for <%= appointment.paperworker.name %> still pending <p>
+<% end %>
 
+
+          <% end %>
+
+          </div>
+    </div>
 
     <div class="row border border-2" style="min-height: 160px" >
       <div class="col-12 border border-primary rounded-3 shadow">
         <div class="py-auto">
           <p>Appointments</p>
-          <% @appointments.each do |appointment| %>
+          <% @appointments.accepted.each do |appointment| %>
             <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
             <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
           <% end %>
