@@ -7,6 +7,5 @@ class PagesController < ApplicationController
   def dashboard
     @appointments = current_user.paperworker? ? current_user.appointments_as_paperworker : current_user.appointments_as_immigrant
     @user = current_user
-
   end
 end

@@ -6,17 +6,25 @@
     <% if @user.paperworker? %>
       <div class="appointments">
         <h4>My Requests</h4>
-        <% if @appointments.pending %>
-          <p>Display</p>
-        <% else %>
-          <p>No requests!</p>
-        <% end %>
+         <% if appointments.pending %>
+         <% @appointments.pending.each do |appointment| %>
+           <%= simple_form_for(appointment, method: :patch) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
+              <%= f.submit "Accept", class: "btn btn-success" %>
+            <% end %>
+            <%= simple_form_for(appointment, method: :patch) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
+              <%= f.submit "Declined", class: "btn btn-danger" %>
+            <% end %>
+            <% else %>
+            <p> No requests yet! </p>
+          <% end %>
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
-          <% @appointments.each do |appointment| %>
-          <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
-          <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
+          <% @appointments.accepted.each do |appointment| %>
+            <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
+            <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
           <% end %>
       </div>
       <div class="appointments">
@@ -25,10 +33,11 @@
   <% else %>
       <div class="appointments">
         <h4>My Requests</h4>
+        <p> Request for <%= appointment.paperworker.name %> still pending <p>
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
-          <% @appointments.each do |appointment| %>
+          <% @appointments.accepted.each do |appointment| %>
           <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
           <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
           <% end %>

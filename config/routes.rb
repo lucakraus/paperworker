@@ -6,11 +6,13 @@ Rails.application.routes.draw do
     resources :appointments, only: [:new, :create]
   end
 
-  resources :appointments, only: [] do
+  resources :appointments, only: [:update] do
     get :chat
     resources :messages, only: :create
   end
   # Defines the root path route ("/")
   # root "articles#index"
   get "/dashboard", to: "pages#dashboard"
+
+
 end
