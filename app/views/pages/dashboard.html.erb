@@ -56,7 +56,7 @@
         <h4>My Appointments</h4>
           <% @appointments.accepted.each do |appointment| %>
           <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
-          <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
+          <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button" %>
           <% end %>
       </div>
       <div class="appointments">
