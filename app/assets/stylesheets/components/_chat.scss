@@ -13,6 +13,7 @@
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    color: #081121;
   }
 
   .messages {
@@ -35,9 +36,12 @@
   }
 
   .btn2{
-    width: 150px;
-    height: 45px;
+    width: 134px;
+    height: 39px;
     color: white;
     margin-left: 8px;
+    background-color: #2D63C4;
+    border-radius: 10px;
+    border: #2D63C4;
   }
 }

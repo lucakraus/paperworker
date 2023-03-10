@@ -1,6 +1,10 @@
 <div class = "container">
 <div class ="container chat">
+<% if current_user = @immigrant %>
   <h3>Send a message to <%= @appointment.paperworker.name %></h3>
+  <% else %>
+  <h3>Send a message to <%= @appointment.immigrant.name %></h3>
+  <% end %>
 
   <div class = "messages">
     <% @appointment.messages.each do |message| %>
@@ -20,7 +24,7 @@
   %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@appointment.paperworker.name}",
+      placeholder: "Message...",
       wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn2 btn-primary mb-3" %>
