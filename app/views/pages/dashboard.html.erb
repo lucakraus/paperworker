@@ -6,9 +6,9 @@
     <% if @user.paperworker? %>
       <div class="appointments">
         <h4>My Requests</h4>
-         <% if appointments.pending %>
-         <% @appointments.pending.each do |appointment| %>
-           <%= simple_form_for(appointment, method: :patch) do |f| %>
+        <% if @appointments.pending %>
+        <% @appointments.pending.each do |appointment| %>
+          <%= simple_form_for(appointment, method: :patch) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
               <%= f.submit "Accept", class: "btn btn-success" %>
             <% end %>
@@ -16,9 +16,12 @@
               <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
               <%= f.submit "Declined", class: "btn btn-danger" %>
             <% end %>
-            <% else %>
+           <% end %>
+          <% else %>
+
             <p> No requests yet! </p>
           <% end %>
+
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
@@ -33,7 +36,9 @@
   <% else %>
       <div class="appointments">
         <h4>My Requests</h4>
-        <p> Request for <%= appointment.paperworker.name %> still pending <p>
+      <% @appointments.pending.each do |appointment| %>
+        <p> Request for <%=appointment.paperworker.name %> still pending <p>
+      <% end %>
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
@@ -45,7 +50,7 @@
       <div class="appointments">
         <h4>My Reviews </h4>
       </div>
-      <% end %>
+  <% end %>
     </div>
   </div>
 </div>
