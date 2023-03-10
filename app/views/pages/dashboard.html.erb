@@ -1,53 +1,51 @@
 <div class="container">
-  <div class="card-db">
+  <div class="dashboard">
+    <%= render "shared/profile" %>
 
-    <div class="row border border-2" style="min-height: 160px">
-      <div class="col-2 border border-primary rounded-3 shadow">
-        <p><%= current_user.name %></p>
-        <img src="https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678199508/paperw%C3%B6rker/profile%20pictures/Luca_dwzaly.jpg" class="rounded-circle img-fluid img-thumbnail " >
-          </div> <!-- Take 4 columns -->
-            <div class="col-10 border border-primary rounded-3 shadow">
-              <p>About me</p>
-              <p>Hi I'm Luca, a web developer passionate about creating engaging and dynamic websites. In my free time, I love to go for a run and explore new trails. Helping people is important to me, and I always try to find ways to give back to my community. And, of course, I can never resist a good bowl of muesli!</p>
-            </div> <!-- Take 8 columns -->
-          </div>
-
-    <%# #if the current_user is immigrant do the following %>
-    <div class="row border border-2" style="min-height: 160px">
-      <div class="col-12 border border-primary rounded-3 shadow">
-            <p>Requests</p>
-          <% @appointments.pending.each do |appointment| %>
-<% if current_user.paperworker?  %>
-<%= simple_form_for(appointment, method: :patch) do |f| %>
+    <div class="appointments-and-reviews">
+    <% if @user.paperworker? %>
+      <div class="appointments">
+        <h4>My Requests</h4>
+         <% if appointments.pending %>
+         <% @appointments.pending.each do |appointment| %>
+           <%= simple_form_for(appointment, method: :patch) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
               <%= f.submit "Accept", class: "btn btn-success" %>
             <% end %>
-
             <%= simple_form_for(appointment, method: :patch) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
               <%= f.submit "Declined", class: "btn btn-danger" %>
             <% end %>
-<% else %>
-<p> Request for <%= appointment.paperworker.name %> still pending <p>
-<% end %>
-
-
+            <% else %>
+            <p> No requests yet! </p>
           <% end %>
-
-          </div>
-    </div>
-
-    <div class="row border border-2" style="min-height: 160px" >
-      <div class="col-12 border border-primary rounded-3 shadow">
-        <div class="py-auto">
-          <p>Appointments</p>
+      </div>
+      <div class="appointments">
+        <h4>My Appointments</h4>
           <% @appointments.accepted.each do |appointment| %>
             <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
             <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
           <% end %>
-        </div>
       </div>
+      <div class="appointments">
+        <h4>My Reviews </h4>
+      </div>
+  <% else %>
+      <div class="appointments">
+        <h4>My Requests</h4>
+        <p> Request for <%= appointment.paperworker.name %> still pending <p>
+      </div>
+      <div class="appointments">
+        <h4>My Appointments</h4>
+          <% @appointments.accepted.each do |appointment| %>
+          <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
+          <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
+          <% end %>
+      </div>
+      <div class="appointments">
+        <h4>My Reviews </h4>
+      </div>
+      <% end %>
     </div>
-
   </div>
 </div>
