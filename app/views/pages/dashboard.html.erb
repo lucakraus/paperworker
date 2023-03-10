@@ -8,15 +8,22 @@
         <h4>My Requests</h4>
         <% if @appointments.pending %>
         <% @appointments.pending.each do |appointment| %>
-          <%= simple_form_for(appointment, method: :patch) do |f| %>
+        <div class="request-section">
+        <div class="request-info">
+        <p>You have a request from <strong><%=appointment.immigrant.name%></strong> on <%=appointment.date.strftime("%Y-%m-%d")%>
+        </div>
+        <div class="request-buttons">
+          <%= simple_form_for(appointment, method: :patch, class: "request-form") do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-              <%= f.submit "Accept", class: "btn btn-success" %>
+              <%= f.submit "Accept", class: "accept-button" %>
             <% end %>
             <%= simple_form_for(appointment, method: :patch) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: "declined" } %>
-              <%= f.submit "Declined", class: "btn btn-danger" %>
+              <%= f.submit "Decline", class: "decline-button" %>
             <% end %>
-           <% end %>
+          </div>
+          </div>
+          <% end %>
           <% else %>
 
             <p> No requests yet! </p>
@@ -26,8 +33,13 @@
       <div class="appointments">
         <h4>My Appointments</h4>
           <% @appointments.accepted.each do |appointment| %>
-            <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
-            <%= link_to "Chat", appointment_chat_path(appointment), class: "btn btn-primary" %>
+            <% if @user.immigrant? %>
+              <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
+              <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button" %>
+            <% else %>
+              <p>You have an upcoming appointment with <%= appointment.immigrant.name %></p>
+              <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button" %>
+            <% end %>
           <% end %>
       </div>
       <div class="appointments">

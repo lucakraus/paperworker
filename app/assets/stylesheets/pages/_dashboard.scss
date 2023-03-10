@@ -15,6 +15,7 @@
   margin: 10px;
   padding: 20px;
   text-align: center;
+  border: solid #DEE8F7 1px;
 }
 
 .profile-info h2 {
@@ -27,4 +28,53 @@
   margin: 10px;
   padding: 20px;
   height: 300px;
+  border: solid #DEE8F7 1px;
+}
+
+.request-info {
+  width: 600px;
+  font-size: large;
+  margin: auto auto auto 5px;
+
+}
+
+.request-buttons {
+  display: flex;
+}
+
+.accept-button {
+  color: white;
+  background-color: $mainblue;
+  padding: 8px 50px;
+  margin: 5px 5px 5px 5px;
+  border: none;
+  border-radius: 10px;
+}
+
+.decline-button {
+  color: white;
+  background-color: $mainblue;
+  padding: 8px 50px;
+  margin: 5px 5px 5px 5px;
+  border: none;
+  border-radius: 10px;
+}
+
+.accept-button:hover {
+  background-color: rgb(16, 97, 16);
+  color: white;
+}
+
+.decline-button:hover {
+  background-color: rgb(119, 25, 25);
+  color: white;
+}
+
+
+
+.request-section {
+  background: rgba(222, 232, 247, 0.4) ;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 25px auto;
 }

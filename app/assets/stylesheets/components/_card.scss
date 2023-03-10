@@ -19,12 +19,14 @@
   border-radius: 20px;;
   height: 450px;
   width: 350px;
+  border: solid #DEE8F7 3px;
 
 }
 
 #card-event-id:hover {
   // transform: scale(1.1);
-  border: solid $mainblue 3px;
+  border: solid $darkblue 3px;
+  color: $darkblue;
 
 }
 
@@ -76,7 +78,8 @@
   border-radius: 50%;
   margin: 5px;
   height: 150px;
-  width: 100%;
+  width: 150px;
+  object-fit: cover;
 }
 
 .card-image-headline {
