@@ -2,7 +2,7 @@
   <div class="row px-3">
     <div class="col-6 px-5 bg-white py-5">
       <div class="paperworker-image py-2">
-        <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill, class: "profile-image" %>
       </div>
       <div class="paperworker-infos">
         <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate %></strong></p>
