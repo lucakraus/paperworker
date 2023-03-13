@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.appointment = Appointment.find(params[:appointment_id])
+    @review[:reviewee_id] = @review.appointment.paperworker_id
     if @review.save
       redirect_to dashboard_path
     else

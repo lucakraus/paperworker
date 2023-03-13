@@ -5,4 +5,11 @@ class Appointment < ApplicationRecord
   belongs_to :immigrant, class_name: "User"
   enum :status, [:pending, :accepted, :declined]
   validates :date, presence: true
+
+  # scope :today_and_future, -> { where("date >= Date.today") }
+  # scope :past, -> { where("date < Date.today") }
 end
+
+
+# paperworker.appointments.today_and_future
+# paperworker.appointments.past
