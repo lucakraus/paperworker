@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @paperworker = User.paperworker.find(params[:id])
+    @review = Review.new
 
     if @paperworker.appointments_as_paperworker.where(immigrant: current_user).any?
       @appointment = Appointment.where(immigrant: current_user).where(paperworker: @paperworker).last
@@ -20,5 +21,6 @@ class UsersController < ApplicationController
       @appointment = Appointment.new
       @requested = false
     end
+
   end
 end
