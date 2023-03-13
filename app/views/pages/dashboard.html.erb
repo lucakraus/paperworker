@@ -3,7 +3,7 @@
     <%= render "shared/profile" %>
 
     <div class="appointments-and-reviews">
-    <% if @user.paperworker? %>
+      <% if @user.paperworker? %>
       <div class="appointments">
         <h4>My Requests</h4>
         <% if @appointments.pending %>
@@ -24,12 +24,10 @@
           </div>
           </div>
           <% end %>
-          <% else %>
-
-            <p> No requests yet! </p>
-          <% end %>
-
-      </div>
+        <% else %>
+          <p> No requests yet! </p>
+        <% end %>
+    </div>
       <div class="appointments">
         <h4>My Appointments</h4>
           <% @appointments.accepted.each do |appointment| %>
@@ -67,32 +65,29 @@
             </div>
           <% end %>
       </div>
-      <div class="appointments">
-        <h4>My Reviews </h4>
-        <% @reviews.each do |review| %>
-        <p><% review.rating.times do %>
-          <span>⭐️</span>
-        <% end %></p>
-        <p><%= review.comment %></p>
-        <% end %>
-      </div>
   <% else %>
       <div class="appointments">
-        <h4>My Requests</h4>
-      <% @appointments.pending.each do |appointment| %>
-        <p> Request for <%=appointment.paperworker.name %> still pending <p>
-      <% end %>
+          <h4>My Requests</h4>
+        <% @appointments.pending.each do |appointment| %>
+          <p> Request for <%=appointment.paperworker.name %> still pending <p>
+        <% end %>
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
           <% @appointments.accepted.each do |appointment| %>
-          <div class="message-and-review">
-              <div>
+            <div class="message-and-review">
+              <div class="upcoming">
+                <%= cl_image_tag appointment.paperworker.photo.key, class: "image-appointment"%>
+                <div class="text-upcoming">
                 <p>You have an upcoming appointment with <%= appointment.paperworker.name %></p>
+                <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>
+                </div>
+                <div class="chat-button">
                 <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button" %>
+                </div>
               </div>
               <div>
-                <button type="button" class="accept-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="accept-button" id="review-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   Add a review
                 </button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,14 +112,20 @@
                   </div>
                 </div>
               </div>
-            <% end %>
-         </div>
-      </div>
-      <div class="appointments">
-        <h4>My Reviews</h4>
-
-     </div>
+            </div>
+          <% end %>
+        </div>
   <% end %>
+    <div class="appointments">
+    <h4>My Reviews</h4>
+      <% @reviews.each do |review| %>
+          <p><% review.rating.times do %>
+            <span>⭐️</span>
+          <% end %></p>
+          <p><%= review.comment %></p>
+      <% end %>
+      </div>
     </div>
+  </div>
   </div>
 </div>
