@@ -36,17 +36,19 @@
               <%= link_to "Check my Dashboard", dashboard_path, id: "btn5" %>
             </div>
         </div>
-      <% else  %>
-      <h2><em>Book your appointment now:</em></h2>
-        <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'} do |f| %>
-          <small>Add a note</small>
-          <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
-          <%= f.input :service, collection: @paperworker.services %>
-          <%= f.input :date, as: :date, html5: true %>
-          <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
+       <% else %>
+      <div data-controller="sweet-alert">
+        <h2><em>Book your appointment now:</em></h2>
+          <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form', data: {sweet_alert_target: "form"}} do |f| %>
+            <small>Add a note</small>
+            <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
+            <%= f.input :service, collection: @paperworker.services %>
+            <%= f.input :date, as: :date, html5: true %>
+            <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
+          <% end %>
+          <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send!</button>
         <% end %>
-         <button id="submit-button" class="btn3 btn-primary">Send!</button>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

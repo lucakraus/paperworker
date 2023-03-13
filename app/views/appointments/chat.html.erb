@@ -16,7 +16,7 @@
 
   <%= simple_form_for [@appointment, @message],
     html: {
-      class: "d-flex",
+      # class: "d-flex",
       data: { action: "turbo:submit-end->chat-subscription#resetForm "} } do |f|
   %>
     <%= f.input :content,
@@ -25,6 +25,9 @@
       wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn2 btn-primary mb-3" %>
+    <%= f.input :photo, as: :file, label: false %>
+
+
   <% end %>
 </div>
 </div>
