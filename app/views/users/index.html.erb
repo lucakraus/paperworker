@@ -20,7 +20,13 @@
           </div>
         </div>
           <div class="card-event-infos">
-            <p> $ <%=paperworker.rate%>/h</p>
+            <%# <p> $ <%=paperworker.rate%>
+            <% if paperworker.rate.to_i == paperworker.rate %>
+              <p class="js-trigger c-tooltip_target profile-card-price__rate"> $ <%= paperworker.rate.to_i %>/h</p>
+
+            <% else %>
+              <p> $ <%= sprintf("%.2f", paperworker.rate) %>/h</p>
+            <% end %>
           </div>
           <div class="card-event-infos">
             <p><strong>Languages:</strong> <%= paperworker.languages.join(", ") %></p>

@@ -91,3 +91,14 @@
 #name {
   margin: 70px 10px 10px 10px;
 }
+
+.profile-card-price__rate {
+  border: 0;
+  // position: absolute;
+  padding: 5px 10px;
+  background-color: #e0dada;
+  top: -16px;
+  margin-left: 12px;
+  border-radius: 20px;
+  float: right;
+}
