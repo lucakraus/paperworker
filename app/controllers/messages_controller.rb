@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.appointment = @appointment
     @message.user = current_user
-
     if @message.save
       ChatChannel.broadcast_to(
         @appointment,
@@ -24,6 +23,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :title, :body, :photo)
   end
 end
