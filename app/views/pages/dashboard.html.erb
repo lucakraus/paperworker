@@ -68,11 +68,13 @@
   <% else %>
       <div class="appointments">
           <h4>My Requests</h4>
+
           <% @appointments.pending.each do |appointment| %>
           <div class="pending-request">
               <p> Request for <%=appointment.paperworker.name %> still pending <p>
-          <% end %>
           </div>
+          <% end %>
+
       </div>
       <div class="appointments">
         <h4>My Appointments</h4>
