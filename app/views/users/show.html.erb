@@ -22,8 +22,20 @@
     </div>
     <div class="col-6 px-5 py-5 d-flex flex-column align-items-center justify-content-around bg-white ml-5">
       <% if @requested %>
-        <h2><em><strong> Your request has been sent on:
-        <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p> </strong></em></h2>
+        <div class="mini-container border shadow px-5 py-5">
+            <div class="p-8 text-center sm:p-12">
+              <p class="text-md font-semibold uppercase tracking-widest mb-3">
+                 Your request has been sent on:
+                 <strong><em><%=  @appointment.date.strftime("%d.%m.%Y") %></em></strong>
+              </p>
+
+              <h2 class="mt-6 text-3xl font-bold mb-5">
+                Thanks for applying, we will get to you as soon as possible<i class="fa-solid fa-check"></i>
+              </h2>
+
+              <%= link_to "Check my Dashboard", dashboard_path, id: "btn5" %>
+            </div>
+        </div>
       <% else  %>
       <h2><em>Book your appointment now:</em></h2>
         <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'} do |f| %>
