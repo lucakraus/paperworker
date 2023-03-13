@@ -22,19 +22,27 @@
     </div>
     <div class="col-6 px-5 py-5 d-flex flex-column align-items-center justify-content-around bg-white ml-5">
       <% if @requested %>
-        <h2><em><strong> Your request has been sent on:
-        <%=  @appointment.date.strftime("%d.%m.%Y") %></strong></p> </strong></em></h2>
-      <% else  %>
-      <h2><em>Book your appointment now:</em></h2>
-        <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'} do |f| %>
-          <small>Add a note</small>
-          <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
-          <%= f.input :service, collection: @paperworker.services %>
-          <%= f.input :date, as: :date, html5: true %>
-          <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
+        <div>
+          <h2><em><strong> Your request has been sent on
+          <%= @appointment.date.strftime("%d.%m.%Y") %>
+          </strong></em></h2>
+        </div>
+        <div>
+          <%= link_to "Go back to my dashboard", dashboard_path, class:"btn btn-primary" %>
+        </div>
+      <% else %>
+      <div data-controller="sweet-alert">
+        <h2><em>Book your appointment now:</em></h2>
+          <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form', data: {sweet_alert_target: "form"}} do |f| %>
+            <small>Add a note</small>
+            <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
+            <%= f.input :service, collection: @paperworker.services %>
+            <%= f.input :date, as: :date, html5: true %>
+            <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
+          <% end %>
+          <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send!</button>
         <% end %>
-         <button id="submit-button" class="btn3 btn-primary">Send!</button>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
