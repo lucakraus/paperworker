@@ -1,26 +1,23 @@
 <div class = "container">
-<div class ="container chat">
-<% if current_user = @immigrant %>
+<div class ="container chat" data-controller="chat-subscription"
+  data-chat-subscription-appointment-id-value= "<%= @appointment.id %>">
+<% if current_user.immigrant? %>
   <h3>Send a message to <%= @appointment.paperworker.name %></h3>
   <% else %>
   <h3>Send a message to <%= @appointment.immigrant.name %></h3>
   <% end %>
 
-  <div class = "messages">
+  <div class = "messages" data-chat-subscription-target="messages">
     <% @appointment.messages.each do |message| %>
-      <div id ="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.name %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render "messages/message", message: message %>
     <% end %>
   </div>
 
 
   <%= simple_form_for [@appointment, @message],
-    html: {class: "d-flex"} do |f|
+    html: {
+      class: "d-flex",
+      data: { action: "turbo:submit-end->chat-subscription#resetForm "} } do |f|
   %>
     <%= f.input :content,
       label: false,
