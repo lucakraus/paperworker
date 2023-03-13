@@ -12,3 +12,7 @@ application.register("hello", HelloController)
 
 import SweetAlertController from "./sweet_alert_controller"
 application.register("sweet-alert", SweetAlertController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)
+

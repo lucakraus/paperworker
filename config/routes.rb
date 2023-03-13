@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :appointments, only: [:update] do
     get :chat
     resources :messages, only: :create
+    resources :reviews, only: [:new, :create]
   end
   # Defines the root path route ("/")
   # root "articles#index"
