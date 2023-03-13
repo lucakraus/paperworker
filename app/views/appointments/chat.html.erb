@@ -16,7 +16,7 @@
 
   <%= simple_form_for [@appointment, @message],
     html: {
-      class: "d-flex",
+      # class: "d-flex",
       data: { action: "turbo:submit-end->chat-subscription#resetForm "} } do |f|
   %>
     <%= f.input :content,

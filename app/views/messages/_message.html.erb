@@ -5,6 +5,6 @@
   </small>
   <p><%= message.content %></p>
   <% if message.photo.attached?%>
-    <%= cl_image_tag message.photo.key, height: 200, width: 100, crop: :fill %>
+    <%= cl_image_tag message.photo.key, height: 80, width: 50, crop: :fill %>
   <% end %>
   </div>
