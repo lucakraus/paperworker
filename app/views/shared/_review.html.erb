@@ -1,4 +1,4 @@
-<% unless @reviews.empty? %>
+
   <% rating_average = 0 %>
   <% @reviews.each do |review| %>
     <%rating_average += review.rating %>
@@ -12,6 +12,4 @@
         <% end %></p>
         </div>
     <% end %>
-  <%else %>
-    <h6> <em> No reviews yet! </em><h6>
-<% end %>
+

@@ -1,10 +1,8 @@
 <div class="container py-5">
   <div class="row px-3">
-    <div class="col-6 px-5 bg-white py-5 border">
-      <div class="paperworker-image py-2">
-        <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill, class: "profile-image" %>
-      </div>
-      <div class="paperworker-infos">
+    <div class="col-6 px-5 bg-white py-5 border ">
+      <div>
+      <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill, class: "image-dashboard" %>
         <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate.to_i %>/h</strong></p>
 
         <p><strong>Languages:   </strong>
@@ -19,6 +17,21 @@
       <div>
         <%= @paperworker.description %>
       </div>
+      <div class="rating-show-page">
+        <% rating_average = 0 %>
+          <% @reviews.each do |review| %>
+            <%rating_average += review.rating %>
+          <% end %>
+          <p>Average rating: <%= rating_average.to_f / @reviews.size %></p>
+            <% @reviews.each do |review| %>
+                <div class="comment-and-rating">
+                <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>
+                <p><% review.rating.times do %>
+                  <span>⭐️</span>
+                <% end %></p>
+                </div>
+            <% end %>
+        </div>
     </div>
     <div class="col-6 px-5 py-5 d-flex flex-column align-items-center justify-content-around bg-white ml-5">
       <% if @requested %>

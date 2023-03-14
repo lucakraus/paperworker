@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @paperworker = User.paperworker.find(params[:id])
     @review = Review.new
+    @reviews = Review.where(reviewee_id: @paperworker)
 
     if @paperworker.appointments_as_paperworker.where(immigrant: current_user).any?
       @appointment = Appointment.where(immigrant: current_user).where(paperworker: @paperworker).last
