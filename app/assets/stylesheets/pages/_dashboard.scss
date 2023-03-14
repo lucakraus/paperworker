@@ -15,7 +15,10 @@
   margin: 10px;
   padding: 20px;
   text-align: center;
-  border: solid #DEE8F7 1px;
+  border: solid #DEE8F7 2px;
+  position: sticky;
+  top: 0;
+  height: 500px;
 }
 
 .profile-info h2 {
@@ -27,7 +30,12 @@
   border-radius: 10px;
   margin: 10px;
   padding: 20px;
-  border: solid #DEE8F7 1px;
+}
+
+.appointments h4 {
+  margin: 0px 10px 20px 0px;
+  padding: 0px 0px 10px 0px;
+  border-bottom: solid $lightblue 3px;
 }
 
 .request-info {
@@ -60,8 +68,9 @@
 }
 
 .accept-button:hover {
-  background-color: rgb(16, 97, 16);
-  color: white;
+  background-color: white ;
+  color: $darkblue;
+  border: solid 2px $darkblue ;
 }
 
 .decline-button:hover {
@@ -83,8 +92,8 @@
   // justify-content: space-between;
   padding: 10px;
   margin: 15px auto;
-  background-color: $lightblue;
   border-radius: 5px;
+  border: solid 3px $lightblue;
 }
 
 .image-appointment {
@@ -106,13 +115,57 @@
   margin: 30px 0px 0px 0px;
 }
 
+#chat-button-future:hover {
+  background-color: white ;
+  color: $darkblue;
+  border: solid 2px §darkblue;
+}
+
 #review-button {
   margin: 20px;
+  background-color: $mainblue;
+  color: white;
+  border: solid 1px white;
+}
+
+#review-button:hover {
+  background-color: white;
+  color: $darkblue;
+  border: solid 1px $darkblue;
 }
 
 .pending-request {
-  border-left: $mainblue solid 5px;
+  border-left: $lightblue solid 5px;
+  border-bottom: $lightblue solid 2px;
   padding: 20px;
-  background-color: $lightblue ;
+  background-color: white ;
   margin: 10px 0px 0px 0px;
+}
+
+#past-appointment .image-appointment {
+  filter: brightness(50%);
+}
+
+#past-appointment {
+  background-color: rgba(222, 232, 247, 0.2);
+  border: solid 3px $lightblue;
+}
+
+#chat-button-past{
+  margin: 30px 0px 0px 114px;
+  background-color: $mainblue;
+  color: white;
+  border-color: $mainblue;
+}
+
+#chat-button-past:hover {
+  background-color: $white;
+  color: $darkblue;
+  border-color: $darkblue;
+}
+
+.fa-check {
+  color: green;
+  font-size: x-large;
+
 }
