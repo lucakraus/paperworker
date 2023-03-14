@@ -6,8 +6,8 @@ class Appointment < ApplicationRecord
   enum :status, [:pending, :accepted, :declined]
   validates :date, presence: true
 
-  # scope :today_and_future, -> { where("date >= Date.today") }
-  # scope :past, -> { where("date < Date.today") }
+  scope :today_and_future, -> { where("date >= Date.today") }
+  scope :past, -> { where("date < Date.today") }
 end
 
 
