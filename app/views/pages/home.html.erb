@@ -1,14 +1,15 @@
 
-  <div class="banner">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('app/assets/images/backgroundimg.jpg');">
     <div class="container text-center">
-      <%# <%= image_tag "backgroundimg "  %> 
+
+      <%# <%= image_tag "backgroundimg "  %>
       <h1>New in Germany and a bit Lost?</h1>
       <p> Helping Immigrants with their exciting new life in Germany</p>
-      <%= link_to "Become a Paperwörker", users_path, class: "btn btn-flat blue-btn" %>
+      <%= link_to "Become a Paperwörker", new_user_registration_path, class: "btn btn-flat blue-btn" %>
       <%= link_to "Immigrant looking for help", users_path, class: "btn btn-primary white-btn" %>
-
     </div>
   </div>
+
 
 <div class="cards">
   <div class="card-category">
