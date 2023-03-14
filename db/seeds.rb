@@ -20,6 +20,7 @@ immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: 
 immigrant_cristobal.save
 
 paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca, and I'm a web development enthusiast. I love creating awesome websites that people enjoy using, but one thing fuels my success more than anything else: musli! That's right; I'm absolutely obsessed with this crunchy, delicious breakfast food.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/Luca_mk2snl.jpg")
 paper_worker_luca.photo.attach(io: file, filename: "Luca.jpeg", content_type: "image/jpeg")
 paper_worker_luca.save
 
