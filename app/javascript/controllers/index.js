@@ -7,12 +7,14 @@ import { application } from "./application"
 import ChatSubscriptionController from "./chat_subscription_controller"
 application.register("chat-subscription", ChatSubscriptionController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-import SweetAlertController from "./sweet_alert_controller"
-application.register("sweet-alert", SweetAlertController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
 
+import SweetAlertController from "./sweet_alert_controller"
+application.register("sweet-alert", SweetAlertController)
