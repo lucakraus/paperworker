@@ -1,27 +1,17 @@
-<div>
-  <button type="button" class="accept-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Add a review
-  </button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Review your appointment</h1>
-          <button type="button" class="accept-button" data-bs-dismiss="modal" aria-label="Close"></button>
+<% unless @reviews.empty? %>
+  <% rating_average = 0 %>
+  <% @reviews.each do |review| %>
+    <%rating_average += review.rating %>
+  <% end %>
+  <p>Average rating: <%= rating_average.to_f / @reviews.size %></p>
+    <% @reviews.each do |review| %>
+        <div class="comment-and-rating">
+        <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>
+        <p><% review.rating.times do %>
+          <span>⭐️</span>
+        <% end %></p>
         </div>
-        <div class="modal-body">
-          <%= simple_form_for [appointment, @review] do |f| %>
-            <%= f.input :comment %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-            <%= f.submit %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="blue-btn" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="blue-btn">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+    <% end %>
+  <%else %>
+    <h6> <em> No reviews yet! </em><h6>
+<% end %>

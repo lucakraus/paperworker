@@ -139,20 +139,11 @@
         <% end %>
         </div>
   <% end %>
-    <div class="appointments">
-      <h4>My Reviews</h4>
-        <% unless @reviews.empty? %>
-          <% @reviews.each do |review| %>
-              <p><% review.rating.times do %>
-                <span>⭐️</span>
-              <% end %></p>
-              <p><%= review.comment %></p>
-          <% end %>
-        <%else %>
-          <h6> <em> No reviews yet! </em><h6>
-        <% end %>
+      <div class="appointments">
+        <h4>My Reviews</h4>
+        <%= render "shared/review" %>
       </div>
     </div>
-  </div>
+   </div>
   </div>
 </div>
