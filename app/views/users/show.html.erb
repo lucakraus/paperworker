@@ -1,20 +1,20 @@
 <div class="container py-5">
   <div class="row px-3">
-    <div class="col-6 px-5 bg-white py-5">
+    <div class="col-6 px-5 bg-white py-5 border">
       <div class="paperworker-image py-2">
         <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill, class: "profile-image" %>
       </div>
       <div class="paperworker-infos">
-        <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate %></strong></p>
+        <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate.to_i %>/h</strong></p>
 
         <p><strong>Languages:   </strong>
-        <%= @paperworker.languages.join(',') %></p>
+        <%= @paperworker.languages.join(',  ') %></p>
 
         <p><strong>Service:   </strong>
-        <%= @paperworker.services.join(',') %></p>
+        <%= @paperworker.services.join(',  ') %></p>
 
         <p><strong>District:   </strong>
-        <%= @paperworker.district.join(',') %></p>
+        <%= @paperworker.district.join(',  ') %></p>
       </div>
       <div>
         <%= @paperworker.description %>
@@ -33,20 +33,20 @@
                 Thanks for applying, we will get to you as soon as possible<i class="fa-solid fa-check"></i>
               </h2>
 
-              <%= link_to "Check my Dashboard", dashboard_path, id: "btn5" %>
+              <%= link_to "Go check your requests", dashboard_path, id: "btn5" %>
             </div>
         </div>
        <% else %>
       <div data-controller="sweet-alert">
         <h2><em>Book your appointment now:</em></h2>
-          <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form', data: {sweet_alert_target: "form"}} do |f| %>
+          <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'}, data: {sweet_alert_target: "form", controller: 'flatpickr'} do |f| %>
             <small>Add a note</small>
             <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
             <%= f.input :service, collection: @paperworker.services %>
-            <%= f.input :date, as: :date, html5: true %>
+            <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %>
             <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
           <% end %>
-          <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send!</button>
+          <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send</button>
         <% end %>
       </div>
     </div>
