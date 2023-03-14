@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   # validates :services, inclusion: SERVICES
 
-  SERVICES = ["translation", "legal", "appointment"].sort
+  SERVICES = ["Translation", "Legal", "Appointment"].sort
   LANGUAGES = ["English", "Spanish", "French", "Arabic", "Persian", "Portuguese", "Chinese", "Japanese", "Korean", "Pashto", "Swahili", "Hindi", "Russian", "Polish", "Ukrainian", "Turkish"].sort
   DISTRICT = ["Mitte", "Reinickendorf", "Pankow", "Friedrichshain-Kreuzberg", "Treptow-Köpenick", "Lichtenberg", "Marzahn-Hellersdorf", "Neukölln", "Tempelhof-Schöneberg", "Steglitz-Zehlendorf", "Charlottenburg-Wilmersdorf", "Spandau"].sort
 end
