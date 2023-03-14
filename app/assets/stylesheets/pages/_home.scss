@@ -1,4 +1,6 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -8,7 +10,12 @@
 
 h1, p{
   color: white;
+  // font-family: 'quicksand';
 }
+}
+
+h1{
+  margin-bottom: 30px;
 }
 
 .blue-btn {
@@ -16,6 +23,8 @@ h1, p{
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
+  // font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .white-btn {
@@ -23,9 +32,12 @@ h1, p{
   color: #2D63C4;
   padding: 10px 20px;
   border-radius: 10px;
+  // font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .btn {
+  margin-top: 30px;
   margin-right: 10px;
   display: inline-block;
   width: 250px;
@@ -48,6 +60,7 @@ h1, p{
   display: flex;
   justify-content: space-between;
   margin: 20px;
+  // font-family: 'quicksand';
 }
 
 .card-category {
