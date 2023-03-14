@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   enum :role, [:paperworker, :immigrant]
   validates :name, :role, presence: true
+=======
+ 
   has_one_attached :photo
   # validates :services, inclusion: SERVICES
 

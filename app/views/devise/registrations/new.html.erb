@@ -20,6 +20,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+
     <%= f.input :languages,
                 required: false, multiple: true,
                 collection: User::LANGUAGES, input_html: {class: "filter"},
@@ -28,17 +29,12 @@
                 required: false,
                 collection: User::SERVICES, input_html: {class: "filter"},
                 input_html: { autocomplete: "services" } %>
-    <%# <%= f.input :role,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "role" },
-                label: 'Are you a Paperworker or an Immigrant?',
-                # collection: ['Paperworker', 'Immigrant'],
-                prompt: 'Select a role' %>
+    
     <%= f.label :role, "Are you a paperworker or an immigrant?" %>
     <%= f.select :role,
                 User.roles.keys.map { |role| [role.humanize, role] },
                 {}, { class: "form-control", required: true } %>
+
   </div>
 
 
