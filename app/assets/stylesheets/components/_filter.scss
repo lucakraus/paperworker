@@ -2,7 +2,15 @@
 .form {
   display: flex;
   justify-content: center;
-  width: 1200px;
+  // width: 1200px;
+}
+
+.form-container {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-bottom: 10px;
 }
 
 .filter {

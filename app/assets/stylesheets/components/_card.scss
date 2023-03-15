@@ -1,5 +1,5 @@
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 20px auto;
   font-family: 'Sarabun', sans-serif;
 }
@@ -16,18 +16,20 @@
 .card-event {
   overflow: hidden;
   background: white;
-  margin: 10px;
+  margin: 15px auto;
   border-radius: 20px;;
-  height: 450px;
-  width: 350px;
-  border: solid #DEE8F7 3px;
+  height: 520px;
+  width: 340px;
+  border: solid white 3px;
+  position: relative;
+  background-color: #EFF4FB;
 
 }
 
 #card-event-id:hover {
   // transform: scale(1.1);
-  border: solid $darkblue 3px;
   color: $darkblue;
+  background-color: rgba(222, 232, 247, 0.8)
 
 }
 
@@ -50,22 +52,27 @@
 }
 
 
-.card-event .card-event-infos {
+.card-event .card-district-infos {
   padding: 10px 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
-  margin: auto auto auto 20px;
+  margin: 10px auto 5px 30px;
+}
 
+
+.card-event .card-services-infos {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  margin: 0px auto 5px 30px;
 }
 
 .card-event .card-event-headline {
-  padding: 15px 10px 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
+  text-align: center;
 
 }
 
@@ -76,11 +83,13 @@
 }
 
 .profile-image {
-  border-radius: 50%;
-  margin: 5px;
-  height: 150px;
-  width: 150px;
+  // border-radius: 50%;
+  margin: 10px;
+  height: 310px;
+  width: 310px;
+  -o-object-fit: cover;
   object-fit: cover;
+  border-radius: 10px 10px 0px 0px
 }
 
 .card-image-headline {
@@ -90,16 +99,42 @@
 }
 
 #name {
-  margin: 70px 10px 10px 10px;
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  width: auto;
+  margin: 10px 10px 10px 0px;
+  position: absolute;
+  top: 293px;
+  left: 30px;
+  // border: solid 1px $darkblue;
 }
 
-.profile-card-price__rate {
-  border: 0;
-  // position: absolute;
+#rate{
+  background-color: white;
+  opacity: 0.7;
+  padding: 5px 15px;
+  border-radius: 5px;
+  width: 100px;
+  margin: 10px 10px 10px 50px;
+  position: absolute;
+  top: 8px;
+  left: 160px;
+  text-align: center;
+}
+
+
+
+.language-tags {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 0px 0px 30px;
+}
+#language {
   padding: 5px 10px;
-  background-color: #e0dada;
-  top: -16px;
-  margin-left: 12px;
-  border-radius: 20px;
-  float: right;
+  background-color: white;
+  margin: 5px;
+  border-radius: 10px;
+
+
 }
