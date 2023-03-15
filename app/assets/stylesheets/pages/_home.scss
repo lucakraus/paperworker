@@ -1,5 +1,7 @@
 // Specific CSS for your home-page
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.cdnfonts.com/css/giveny-free');
+@import url('https://fonts.cdnfonts.com/css/sarabun-2');
 
 .banner {
   background-size: cover;
@@ -60,7 +62,8 @@ h1{
   display: flex;
   justify-content: space-between;
   margin: 20px;
-  // font-family: 'quicksand';
+  font-family: 'Sarabun', sans-serif;
+                                            
 }
 
 .card-category {
