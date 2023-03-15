@@ -7,13 +7,15 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-color: #081121;
-  color: #fff;
 
-h1, p{
-  color: white;
-  // font-family: 'quicksand';
+  h1, p{
+    color: white;
+    // font-family: 'quicksand';
+  }
 }
+
+#homePage {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('OldSchool');
 }
 
 h1{
@@ -63,7 +65,7 @@ h1{
   justify-content: space-between;
   margin: 20px;
   font-family: 'Sarabun', sans-serif;
-                                            
+
 }
 
 .card-category {
@@ -80,6 +82,7 @@ h1{
   h3, p {
     text-align: center;
     color: #081121;
+    font-size: medium;
   }
 
 }
