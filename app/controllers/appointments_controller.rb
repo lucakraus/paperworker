@@ -29,6 +29,10 @@ class AppointmentsController < ApplicationController
   #   redirect_to user_path(@appointment.paperworker)
   # end
 
+  # def chat_show
+  #   @appointment = Appointment.find(params[:appointment_id])
+  # end
+
   def cancel
     @appointment = Appointment.find(params[:id])
     @appointment.status = 'canceled'

@@ -1,33 +1,53 @@
+
 <div class = "container">
-<div class ="container chat" data-controller="chat-subscription"
-  data-chat-subscription-appointment-id-value= "<%= @appointment.id %>">
-<% if current_user.immigrant? %>
-  <h3>Send a message to <%= @appointment.paperworker.name %></h3>
-  <% else %>
-  <h3>Send a message to <%= @appointment.immigrant.name %></h3>
-  <% end %>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class ="container chat" data-controller="chat-subscription"
+        data-chat-subscription-appointment-id-value= "<%= @appointment.id%>" style="float:left">
+      <% if current_user.immigrant? %>
+        <h3>Send a message to <%= @appointment.paperworker.name %></h3>
+        <% else %>
+        <h3>Send a message to <%= @appointment.immigrant.name %></h3>
+        <% end %>
 
-  <div class = "messages" data-chat-subscription-target="messages">
-    <% @appointment.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+        <div class = "messages" data-chat-subscription-target="messages">
+          <% @appointment.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+
+
+        <%= simple_form_for [@appointment, @message],
+          html: {
+            # class: "d-flex",
+            data: { action: "turbo:submit-end->chat-subscription#resetForm "} } do |f| %>
+          <%= f.input :content,
+            label: false,
+            placeholder: "Message...",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+          <div style = "float:left">
+          <%= f.submit "Send", class: "btn2 btn-primary mb-3" %>
+          </div>
+          <div style = "float:right">
+          <%= f.input :photo, as: :file, label: false, class: "btn btn-primary mb-3"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card-chat">
+          <div class="card-body">
+            <h5 class="card-title">Appointment Information</h5>
+            <br>
+          <% if @appointment.accepted? %>
+          <p>You have an upcoming appointment with <%= @appointment.paperworker.name %></p>
+          <p>Date: <%= @appointment.date.strftime("%Y-%m-%d")%></p>
+          <%= link_to "Profile",  user_path(@appointment.paperworker), class: "btn btn-primary mb-3" %>
+          <% end %>
+          </div>
+        </div>
+      </div>
   </div>
-
-
-  <%= simple_form_for [@appointment, @message],
-    html: {
-      # class: "d-flex",
-      data: { action: "turbo:submit-end->chat-subscription#resetForm "} } do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message...",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn2 btn-primary mb-3" %>
-    <%= f.input :photo, as: :file, label: false %>
-
-
-  <% end %>
-</div>
 </div>
