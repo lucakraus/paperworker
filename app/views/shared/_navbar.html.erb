@@ -8,28 +8,31 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse">
+      <div id="navbarSupportedContent">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <div class="nav-item-active">
             <%= link_to "Home", users_path, class: "nav-link" %>
-          </li>
+          </div>
           <%# <li class="nav-item">
             <%= link_to "Profile", "#", class: "nav-link" %>
           <%# </li> %>
-          <li class="nav-item dropdown">
-             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.name %></a>
+            <div class="current-user">
+             <%= current_user.name %>
+            </div>
+          <div class="nav-item-dropdown">
+             <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= cl_image_tag current_user.photo.key, class: "avatar-profile"%></a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-          </li>
+          </div>
         <% else %>
-          <li class="nav-item">
+          <div class="nav-login">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </div>
