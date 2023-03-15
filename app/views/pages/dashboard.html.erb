@@ -30,40 +30,65 @@
     </div>
       <div class="appointments">
         <h4>My Appointments</h4>
+        <% unless @appointments.accepted.empty? %>
           <% @appointments.accepted.each do |appointment| %>
-            <div class="message-and-review">
-              <div>
-                <p>You have an upcoming appointment with <%= appointment.immigrant.name %></p>
-                <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button" %>
-              </div>
-              <div>
-                <button type="button" class="accept-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Add a review
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Review your appointment</h1>
-                        <button type="button" class="accept-button" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <%= simple_form_for [appointment, @review] do |f| %>
-                          <%= f.input :comment %>
-                          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-                          <%= f.submit %>
-                        <% end %>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="blue-btn" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="blue-btn">Save changes</button>
+              <% if appointment.date < Date.today %>
+              <div class="message-and-review" id="past-appointment">
+                <div class="upcoming">
+                  <%= cl_image_tag appointment.immigrant.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "image-appointment"%>
+                  <div class="text-upcoming">
+                  <h6> <em>Appointment with <strong><%= appointment.immigrant.name %> </strong> DONE</em> </i></h6>
+                  <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>
+                  </div>
+
+                  <div class="chat-button">
+                  <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button", id: "chat-button-past" %>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" class="accept-button" id="review-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add a review
+                  </button>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Review your appointment</h1>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for [appointment, @review] do |f| %>
+                            <%= f.input :comment %>
+                            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+                            <%= f.submit class: "accept-button"%>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
+              <% else %>
+              <div class="message-and-review">
+                <div class="upcoming">
+                  <%= cl_image_tag appointment.immigrant.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "image-appointment"%>
+                <div class="text-upcoming">
+                  <h6> <em> You have an upcoming appointment with <%= appointment.immigrant.name %></em></h6>
+                  <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>
+                  </div>
+                  <div class="chat-button">
+                  <%= link_to "Chat", appointment_chat_path(appointment), class: "accept-button", id: "chat-button-future" %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           <% end %>
+        <%else %>
+          <h6> <em> No appointments yet! </em><h6>
+        <% end %>
+        </div>
+            <div class="appointments">
+      <h4>My Reviews</h4>
+      <%= render "shared/review" %>
+    </div>
       </div>
   <% else %>
       <div class="appointments">
@@ -88,7 +113,7 @@
               <% if appointment.date < Date.today %>
               <div class="message-and-review" id="past-appointment">
                 <div class="upcoming">
-                  <%= cl_image_tag appointment.paperworker.photo.key, class: "image-appointment"%>
+                  <%= cl_image_tag appointment.paperworker.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "image-appointment"%>
                   <div class="text-upcoming">
                   <h6> <em>Appointment with <strong><%= appointment.paperworker.name %> </strong> DONE</em> </i></h6>
                   <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>
@@ -122,7 +147,7 @@
               <% else %>
               <div class="message-and-review">
                 <div class="upcoming">
-                  <%= cl_image_tag appointment.paperworker.photo.key, class: "image-appointment"%>
+                  <%= cl_image_tag appointment.paperworker.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "image-appointment"%>
                 <div class="text-upcoming">
                   <h6> <em> You have an upcoming appointment with <%= appointment.paperworker.name %></em></h6>
                   <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>

@@ -1,65 +1,76 @@
 <div class="container py-5">
-  <div class="row px-3">
-    <div class="col-6 px-5 bg-white py-5 border ">
+  <div class="row px-3 align-item-center justify-content-between">
+    <div class="col-6 px-5 bg-white py-5 show-profile">
       <div>
-      <%= cl_image_tag @paperworker.photo.key, height: 300, width: 400, crop: :fill, class: "image-dashboard" %>
-        <h2><%= @paperworker.name %></h2> <p><strong>$<%= @paperworker.rate.to_i %>/h</strong></p>
+      <%= cl_image_tag @paperworker.photo.key,:transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "profile-image" %>
+        <h2 class="mt-5"><%= @paperworker.name %></h2>
 
-        <p><strong>Languages:   </strong>
+        <p id="rate-show-page"><strong><%= @paperworker.rate.to_i %>€/h</strong></p>
+
+        <p class="mt-3"><strong><i class="fa-solid fa-comment"></i></strong>
         <%= @paperworker.languages.join(',  ') %></p>
 
-        <p><strong>Service:   </strong>
+        <p><strong><i class="fa-solid fa-handshake-angle"></i></strong>
         <%= @paperworker.services.join(',  ') %></p>
 
-        <p><strong>District:   </strong>
+        <p><strong><i class="fa-sharp fa-solid fa-location-dot"></i> </strong>
         <%= @paperworker.district.join(',  ') %></p>
       </div>
-      <div>
+      <div class="description-show-page">
+        <h5>About me</h5>
         <%= @paperworker.description %>
       </div>
       <div class="rating-show-page">
-        <% rating_average = 0 %>
-          <% @reviews.each do |review| %>
-            <%rating_average += review.rating %>
-          <% end %>
-          <p>Average rating: <%= rating_average.to_f / @reviews.size %></p>
-            <% @reviews.each do |review| %>
-                <div class="comment-and-rating">
-                <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>
-                <p><% review.rating.times do %>
-                  <span>⭐️</span>
-                <% end %></p>
-                </div>
+        <h4> <%=@paperworker.name%>'s reviews </h4>
+            <% unless @reviews.empty? %>
+              <% rating_average = 0 %>
+              <% @reviews.each do |review| %>
+                <%rating_average += review.rating %>
+              <% end %>
+              <p>Average rating: <%= rating_average.to_f / @reviews.size %></p>
+                <% @reviews.each do |review| %>
+                    <div class="comment-and-rating">
+                    <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>
+                    <p><% review.rating.times do %>
+                      <span>⭐️</span>
+                    <% end %></p>
+                    </div>
+                <% end %>
+              <% else %>
+              <p> <strong> <%=@paperworker.name%> </strong><em>doesn't have any reviews yet! </em></p>
             <% end %>
-        </div>
+      </div>
+
     </div>
-    <div class="col-6 px-5 py-5 d-flex flex-column align-items-center justify-content-around bg-white ml-5">
-      <% if @requested %>
-        <div class="mini-container border shadow px-5 py-5">
-            <div class="p-8 text-center sm:p-12">
-              <p class="text-md font-semibold uppercase tracking-widest mb-3">
-                 Your request has been sent on:
-                 <strong><em><%=  @appointment.date.strftime("%d.%m.%Y") %></em></strong>
-              </p>
+    <div class="col-6 px-5 py-5 d-flex flex-column align-items-center bg-white ml-5">
+      <div id="request-form" class="mt-5">
+        <% if @requested %>
+          <div class="mini-container border shadow px-5 py-5">
+              <div class="p-8 text-center sm:p-12">
+                <p class="text-md font-semibold uppercase tracking-widest mb-3">
+                  Your request has been sent on:
+                  <strong><em><%=  @appointment.date.strftime("%d.%m.%Y") %></em></strong>
+                </p>
 
-              <h2 class="mt-6 text-3xl font-bold mb-5">
-                Thanks for applying, we will get to you as soon as possible<i class="fa-solid fa-check"></i>
-              </h2>
+                <h2 class="mt-6 text-3xl font-bold mb-5">
+                  Thank you! <%=@paperworker.name%> will answer you soon! <i class="fa-solid fa-check"></i>
+                </h2>
 
-              <%= link_to "Go check your requests", dashboard_path, id: "btn5" %>
-            </div>
-        </div>
-       <% else %>
-      <div data-controller="sweet-alert">
-        <h2><em>Book your appointment now:</em></h2>
-          <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'}, data: {sweet_alert_target: "form", controller: 'flatpickr'} do |f| %>
-            <small>Add a note</small>
-            <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
-            <%= f.input :service, collection: @paperworker.services %>
-            <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %>
-            <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
-          <% end %>
-          <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send</button>
+                <%= link_to "Go check your requests", dashboard_path, id: "btn5" %>
+              </div>
+          </div>
+        <% else %>
+          <div data-controller="sweet-alert" >
+          <h2><em>Book your appointment now:</em></h2>
+            <%= simple_form_for [@paperworker, @appointment], html: {class: "w-100", id: 'appointment-form'}, data: {sweet_alert_target: "form", controller: 'flatpickr'} do |f| %>
+              <small>Add a note</small>
+              <%= f.input :description, as: :text, :input_html => { class: 'test', :cols => 3, :rows => 3 }, label: false %>
+              <%= f.input :service, collection: @paperworker.services %>
+              <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %>
+              <%#= f.button :submit, "Send your Request", class: "btn3 btn-primary" %>
+            <% end %>
+            <button id="submit-button" class="btn3 btn-primary" data-action="click->sweet-alert#fire">Send</button>
+          </div>
         <% end %>
       </div>
     </div>

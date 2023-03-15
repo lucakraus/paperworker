@@ -20,3 +20,47 @@ h2, p {
     border: #2D63C4;
     padding: 15px;
   }
+
+  .show-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #appointment-form {
+    margin: 20px auto;
+    // position: sticky;
+    // top: 0;
+
+  }
+
+  #request-form {
+    position: sticky;
+    top: 100px;
+    // margin: auto 20px;
+  }
+
+  .show-profile {
+    border: solid 2px $lightblue;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+  }
+
+  .rating-show-page {
+
+    margin: 40px auto auto auto;
+    border-top: $lightblue solid 3px ;
+    padding: 30px;
+
+  }
+
+  .description-show-page {
+    margin: 40px auto auto auto;
+    border-top: $lightblue solid 3px ;
+    padding: 30px;
+  }
+
+#rate-show-page p {
+    color: $mainblue;
+
+}
