@@ -11,7 +11,7 @@
       <%# <%=image_tag "worker.jpg"%>
 
           <div class="card-event-headline">
-            <%= cl_image_tag paperworker.photo.key, class: "profile-image"%>
+            <%= cl_image_tag paperworker.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "profile-image"%>
           </div>
           <div id="name" >
             <h3 >

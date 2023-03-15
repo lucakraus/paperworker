@@ -1,6 +1,6 @@
     <div class="profile-info">
       <div>
-        <%= cl_image_tag @user.photo.key, class: "image-dashboard"%>
+        <%= cl_image_tag @user.photo.key, class: "profile-image"%>
       </div>
       <div>
       <% if @user.paperworker? %>
@@ -12,9 +12,11 @@
         <p><strong>Description:</strong> <%= @user.description%></p>
       <% else %>
         <h2><%= @user.name%></h2>
-        <p><strong>Languages:</strong> <%= @user.languages.join(", ")%></p>
-        <p><strong>Services:</strong> <%= @user.services.join(", ")%></p>
-        <p><strong>Description:</strong> <%= @user.description%></p>
+        <p><i class="fa-solid fa-comment"></i>  <%= @user.languages.join(", ")%></p>
+      <div class="description-show-page">
+        <h5>About me</h5>
+        <%= @user.description %>
+      </div>
       <% end %>
       </div>
     </div>

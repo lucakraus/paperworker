@@ -107,7 +107,7 @@
   position: absolute;
   top: 293px;
   left: 30px;
-  // border: solid 1px $darkblue;
+  border: solid 2px $mainblue;
 }
 
 #rate{
@@ -135,6 +135,8 @@
   background-color: white;
   margin: 5px;
   border-radius: 10px;
-
-
+  p {
+    color: $mainblue;
+    font-weight: bold;
+ }
 }
