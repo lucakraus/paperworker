@@ -14,12 +14,17 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/p
 immigrant_bahareh.photo.attach(io: file, filename: "Bahareh.jpeg", content_type: "image/jpeg")
 immigrant_bahareh.save
 
-immigrant_cristobal = User.create!(email: "cris.cris@gmail.com", password: "123456", role: "immigrant", name: "Cristobal Fernandez", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h")
+immigrant_cristobal = User.create!(email: "cris.cris@gmail.com", password: "123456", role: "immigrant", name: "Cristobal Fernandez", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
 immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_cristobal.save
 
-paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca, and I'm a web development enthusiast. I love creating awesome websites that people enjoy using, but one thing fuels my success more than anything else: musli! That's right; I'm absolutely obsessed with this crunchy, delicious breakfast food.")
+immigrant_cristobal = User.create!(email: "cris@gmail.com", password: "123456", role: "immigrant", name: "Cristobal Fernandez", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", escription: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_cristobal.save
+
+paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca and I love German bureaucracy. The more cpmplicated the better. Official documents, letters no one understands, and non digital communication are my passions.")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/Luca_mk2snl.jpg")
 paper_worker_luca.photo.attach(io: file, filename: "Luca.jpeg", content_type: "image/jpeg")
 paper_worker_luca.save
