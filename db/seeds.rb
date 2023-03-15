@@ -19,7 +19,7 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/p
 immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_cristobal.save
 
-immigrant_cristobal = User.create!(email: "cris@gmail.com", password: "123456", role: "immigrant", name: "Cristobal Fernandez", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", escription: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+immigrant_cristobal = User.create!(email: "cris@gmail.com", password: "123456", role: "immigrant", name: "Cristobal Fernandez", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
 immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_cristobal.save
