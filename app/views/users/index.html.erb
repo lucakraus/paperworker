@@ -9,33 +9,28 @@
     <div id="card-event-id" class="card-event">
 
       <%# <%=image_tag "worker.jpg"%>
-        <div class="card-image-headline">
+
           <div class="card-event-headline">
             <%= cl_image_tag paperworker.photo.key, class: "profile-image"%>
           </div>
-          <div id="name" class="card-event-headline">
-            <h3>
+          <div id="name" >
+            <h3 >
               <%= paperworker.name %>
             </h3>
           </div>
-        </div>
-          <div class="card-event-infos">
-            <%# <p> $ <%=paperworker.rate%>
-            <% if paperworker.rate.to_i == paperworker.rate %>
-              <p class="js-trigger c-tooltip_target profile-card-price__rate"> $ <%= paperworker.rate.to_i %>/h</p>
-
-            <% else %>
-              <p> $ <%= sprintf("%.2f", paperworker.rate) %>/h</p>
+          <div id="rate">
+            <p ><%= paperworker.rate.to_i %>€/h</p>
+          </div>
+          <div class="language-tags">
+            <%paperworker.languages.each do |language| %>
+            <div id="language"> <p> <%= language %></p></div>
             <% end %>
           </div>
-          <div class="card-event-infos">
-            <p><strong>Languages:</strong> <%= paperworker.languages.join(", ") %></p>
+          <div class="card-district-infos">
+            <p><i class="fa-sharp fa-solid fa-location-dot"></i> <%= paperworker.district.join(", ") %></p>
           </div>
-          <div class="card-event-infos">
-            <p><strong>Districts:</strong> <%= paperworker.district.join(", ") %></p>
-          </div>
-          <div class="card-event-infos">
-            <p><strong>Services:</strong> <%= paperworker.services.join(", ") %></p>
+          <div class="card-services-infos">
+            <p><i class="fa-solid fa-handshake-angle"></i> <%= paperworker.services.join(", ") %></p>
           </div>
     </div>
     <% end %>
