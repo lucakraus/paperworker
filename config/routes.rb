@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :appointments, only: [:update] do
-    get :chat
+    get :chat, to: "appointments#chat"
     resources :messages, only: :create
     resources :reviews, only: [:new, :create]
   end

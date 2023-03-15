@@ -1,14 +1,16 @@
+
 .chat{
   background: rgba(222, 232, 247, 0.2);
   margin-top: 9px;
   height: calc(90vh - 75px);
-  width: fit-content;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
   border-radius: 10px;
   border: solid #dee8f7 3px;
+
 
     h3 {
       border-bottom: 2px solid $mainblue;
@@ -47,14 +49,73 @@
     width: 134px;
     height: 39px;
     color: white;
-    margin-left: 8px;
+    margin-left: 0px;
     background-color: #2D63C4;
     border-radius: 10px;
     border: #2D63C4;
   }
+
+  .form-control {
+    background-color: white;
+    border-radius: 10px;
+  }
 }
 
-.form-control {
-  background-color: white;
+.card-chat {
+  border: solid #dee8f7 3px;
+  margin-top: 20px;
   border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+
+    .btn {
+      width: 134px;
+      height: 39px;
+      color: white;
+      margin-left: 8px;
+      background-color: #2D63C4;
+      border-radius: 10px;
+      border: #2D63C4;
+    }
+}
+
+
+
+@media(max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
