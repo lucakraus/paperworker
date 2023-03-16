@@ -5,7 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "date"
+
+puts "hi"
+
 User.destroy_all
+
+
 
 # cristobal = User.create!(email: "cris.cris@gmail.com", password: "123456", first_name: "Cristobal", last_name: "Fernandez")
 # luca = User.create!(email: "luca.luca@gmail.com", password: "123456", first_name: "Luca", last_name: "Kraus")
@@ -24,7 +30,43 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/p
 immigrant_cristobal.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_cristobal.save
 
-paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca and I love German bureaucracy. The more cpmplicated the better. Official documents, letters no one understands, and non digital communication are my passions.")
+immigrant_pedro = User.create!(email: "peter@gmail.com", password: "123456", role: "immigrant", name: "Pedro Pascal", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_pedro.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_pedro.save
+
+immigrant_karen = User.create!(email: "karen@gmail.com", password: "123456", role: "immigrant", name: "Karen Smith", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_karen.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_karen.save
+
+immigrant_ara = User.create!(email: "ara@gmail.com", password: "123456", role: "immigrant", name: "Ara Kim", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_ara.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_ara.save
+
+immigrant_joao = User.create!(email: "joao@gmail.com", password: "123456", role: "immigrant", name: "João da Silva", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_joao.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_joao.save
+
+immigrant_ali = User.create!(email: "ali@gmail.com", password: "123456", role: "immigrant", name: "Ali Ahmad", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_ali.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_ali.save
+
+immigrant_aleksandr = User.create!(email: "aleksandr@gmail.com", password: "123456", role: "immigrant", name: "Aleksandr Melnyk", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_aleksandr.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_aleksandr.save
+
+immigrant_piros = User.create!(email: "piros@gmail.com", password: "123456", role: "immigrant", name: "Zsófia Piros", languages: ["English", "Spanish", "Italian"], services: ["Translation", "Legal", "Appointment"], rate: "50€ p/h", description: "I am a very handsome and clever human being who has been living in Germany for 5 years but I still don't speak the language.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Cris_e8jnzc.jpg")
+immigrant_piros.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
+immigrant_piros.save
+
+
+paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca and I love German bureaucracy. The more complicated the better. Official documents, letters no one understands, and non-digital communication are my passions.")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/Luca_mk2snl.jpg")
 paper_worker_luca.photo.attach(io: file, filename: "Luca.jpeg", content_type: "image/jpeg")
 paper_worker_luca.save
@@ -69,12 +111,12 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877774/p
 paper_worker_julius.photo.attach(io: file, filename: "albert-dera.jpeg", content_type: "image/jpeg")
 paper_worker_julius.save
 
-paper_worker_angela = User.create!(email: "angela.angela@gmail.com", password: "123456", role: 0, name: "Angela Merkel", languages: ["German", "Russian", "English"], services: ["Translation", "Legal"], rate: "135€ p/h", district: ["Mitte"], description: "Former German chancellor")
+paper_worker_angela = User.create!(email: "angela.angela@gmail.com", password: "123456", role: 0, name: "Angela Merkel", languages: ["German", "Russian", "English"], services: ["Translation", "Legal"], rate: "135€ p/h", district: ["Mitte", "Pankow"], description: "I'm Angela, the power mom who run Germany like a well-oiled machine for 16 years. I'm all about efficiency, whether organizing politics or bureaucracy appointments. I'm a master of getting things done. #MerkelMagic")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678879102/paperw%C3%B6rker/profile%20pictures/merkel_fd5x2x.jpg")
 paper_worker_angela.photo.attach(io: file, filename: "merkel.jpeg", content_type: "image/jpeg")
 paper_worker_angela.save
 
-paper_worker_david = User.create!(email: "david.david@gmail.com", password: "123456", role: 0, name: "David Hasselhoff", languages: ["German", "Ukrainian", "Russian"], services: ["Translation", "Appointment"], rate: "40€ p/h", district: ["Marzahn-Hellersdorf", "Treptow-Köpenick"], description: "'80s TV heartthrob and lifeguard")
+paper_worker_david = User.create!(email: "david.david@gmail.com", password: "123456", role: 0, name: "David Hasselhoff", languages: ["German", "Ukrainian", "Russian"], services: ["Translation", "Appointment"], rate: "40€ p/h", district: ["Marzahn-Hellersdorf", "Treptow-Köpenick"], description: "I'm the Hoffinator. A lifeguard turned pop star. I've saved lives on Baywatch and rocked Germany's music scene. With my signature red jacket and smooth voice, I'm a force to be reckoned with. #Hofftastic")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/David_Hasselhoff_yjti2f.jpg")
 paper_worker_david.photo.attach(io: file, filename: "david.jpeg", content_type: "image/jpeg")
 paper_worker_david.save
@@ -143,3 +185,29 @@ paper_worker_streep = User.create!(email: "streep.streep@gmail.com", password: "
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877765/paperw%C3%B6rker/profile%20pictures/jack-finnigan_dlvu5u.jpg")
 paper_worker_streep.photo.attach(io: file, filename: "jack-finnigan.jpeg", content_type: "image/jpeg")
 paper_worker_streep.save
+
+appointment_one = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_aleksandr.id)
+
+appointment_two = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_karen.id)
+
+appointment_three = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_bahareh.id)
+
+appointment_four = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_joao.id)
+
+appointment_five = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_ali.id)
+
+appointment_six = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_piros.id)
+
+review_one = Review.create!(rating: 4, comment: "She got things done. Was a little too serious tho.", user_id: immigrant_aleksandr.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_one.id)
+
+review_two = Review.create!(rating: 1, comment: "I didn't like her attitude.", user_id: immigrant_karen.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_two.id)
+
+review_three = Review.create!(rating: 5, comment: "She came saw and conquered.", user_id: immigrant_bahareh.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_three.id)
+
+review_four = Review.create!(rating: 5, comment: "She was calm, cool, and collected. I am impressed.", user_id: immigrant_joao.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_four.id)
+
+review_five = Review.create!(rating: 5, comment: "She was very nice and knew exaclty what she was doing!", user_id: immigrant_ali.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_five.id)
+
+review_six = Review.create!(rating: 5, comment: "She's got the organizational skills of Marie Kondo! I'd vote for her any day.", user_id: immigrant_piros.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_six.id)
+
+puts "bye"
