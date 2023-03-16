@@ -11,8 +11,6 @@ puts "hi"
 
 User.destroy_all
 
-
-
 # cristobal = User.create!(email: "cris.cris@gmail.com", password: "123456", first_name: "Cristobal", last_name: "Fernandez")
 # luca = User.create!(email: "luca.luca@gmail.com", password: "123456", first_name: "Luca", last_name: "Kraus")
 immigrant_bahareh = User.create!(email: "bahareh.bahareh@gmail.com", password: "123456", role: 1, name: "Bahareh Sammaknejad", languages: ["English", "Arabic", "French"], services: ["Translation", "Appointment"], rate: "50€ p/h")
@@ -65,26 +63,40 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/p
 immigrant_piros.photo.attach(io: file, filename: "Cris.jpeg", content_type: "image/jpeg")
 immigrant_piros.save
 
+paper_worker_vader = User.create!(email: "vader.vader@gmail.com", password: "123456", role: 0, name: "Cesar Rincon", languages: ["Spanish",	"Korean",	"English"], services: ["Legal",	"Appointment"], rate: "43€ p/h", district: ["Treptow-Köpenick", "Steglitz-Zehlendorf"], description: "Former Jedi turned Sith Lord")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877770/paperw%C3%B6rker/profile%20pictures/cesar-rincon_ynexyn.jpg")
+paper_worker_vader.photo.attach(io: file, filename: "cesar-rincon.jpeg", content_type: "image/jpeg")
+paper_worker_vader.save
 
-paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca and I love German bureaucracy. The more complicated the better. Official documents, letters no one understands, and non-digital communication are my passions.")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/Luca_mk2snl.jpg")
-paper_worker_luca.photo.attach(io: file, filename: "Luca.jpeg", content_type: "image/jpeg")
-paper_worker_luca.save
+paper_worker_lannister = User.create!(email: "lannister.lannister@gmail.com", password: "123456", role: 0, name: "Jimmy Fermin", languages: ["English",	"French",	"Portuguese"], services: ["Legal",	"Appointment"], rate: "65€ p/h", district: ["Charlottenburg-Wilmersdorf",	"Spandau"], description: "Queen of the Seven Kingdoms")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877770/paperw%C3%B6rker/profile%20pictures/jimmy-fermin_p5i4xg.jpg")
+paper_worker_lannister.photo.attach(io: file, filename: "jimmy-fermin.jpeg", content_type: "image/jpeg")
+paper_worker_lannister.save
 
-paper_worker_akram = User.create!(email: "akram.akram@gmail.com", password: "123456", role: "paperworker", name: "Akram Hassan", languages: ["German", "English", "Arabic"], services: ["Translation", "Legal"], rate: "50€ p/h", district: ["Charlottenburg-Wilmersdorf"], description: "I like coding and fashion; on weekends I challenge my friends to walk-offs")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Akram_cuunl0.jpg")
-paper_worker_akram.photo.attach(io: file, filename: "Akram.jpeg", content_type: "image/jpeg")
-paper_worker_akram.save
+paper_worker_curie = User.create!(email: "curie.curie@gmail.com", password: "123456", role: 0, name: "Ayo Ogunseinde", languages: ["Pashto",	"Russian", "Polish"], services: ["Translation", 	"Legal",	"Appointment"], rate: "25€ p/h", district: ["Mitte", "Pankow"], description: "Nobel Prize-winning physicist & chemist")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877766/paperw%C3%B6rker/profile%20pictures/ayo-ogunseinde_yktl7d.jpg")
+paper_worker_curie.photo.attach(io: file, filename: "ayo-ogunseinde.jpeg", content_type: "image/jpeg")
+paper_worker_curie.save
 
-paper_worker_felix = User.create!(email: "felix.felix@gmail.com", password: "123456", role: 0, name: "Felix Cramer", languages: ["German", "English", "Spanish"], services: ["Appointment", "Translation"], rate: "35€ p/h", district: ["Friedrichshain-Kreuzberg", "Pankow"], description: "I love hunting with my cousin in his big old truck, yeehaw!")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/felix_fmmdzo.jpg")
-paper_worker_felix.photo.attach(io: file, filename: "felix.jpeg", content_type: "image/jpeg")
-paper_worker_felix.save
+paper_worker_hawking = User.create!(email: "hawking.hawking@gmail.com", password: "123456", role: 0, name: "Toa Heftiba", languages: ["English", "French", "Persian"], services: ["Translation", 	"Legal",	"Appointment"], rate: "85€ p/h", district: ["Treptow-Köpenick",	"Lichtenberg"], description: "Theoretical physicist & author")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877765/paperw%C3%B6rker/profile%20pictures/toa-heftiba_rxjbzq.jpg")
+paper_worker_hawking.photo.attach(io: file, filename: "toa-heftiba.jpeg", content_type: "image/jpeg")
+paper_worker_hawking.save
 
-paper_worker_katja = User.create!(email: "katja.katja@gmail.com", password: "123456", role: 0, name: "Katja Löffler", languages: ["German", "Ukrainian", "English"], services: ["Translation"], rate: "40€ p/h", district: ["Mitte", "Pankow"], description: "I enjoy writing code and doing my laundry on Thursday, so I don't need to do it on the weekend")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/katja_nx27om.jpg")
-paper_worker_katja.photo.attach(io: file, filename: "katja.jpeg", content_type: "image/jpeg")
-paper_worker_katja.save
+paper_worker_goodall = User.create!(email: "goodall.goodall@gmail.com", password: "123456", role: 0, name: "Joseph Gonzalez", languages: ["Spanish",	"French",	"Arabic"], services: ["Translation", 	"Legal",	"Appointment"], rate: "85€ p/h", district: ["Friedrichshain-Kreuzberg",	"Marzahn-Hellersdorf"], description: "Primatologist & conservationist")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877767/paperw%C3%B6rker/profile%20pictures/joseph-gonzalez_ifgth8.jpg")
+paper_worker_goodall.photo.attach(io: file, filename: "joseph-gonzalez.jpeg", content_type: "image/jpeg")
+paper_worker_goodall.save
+
+paper_worker_williams = User.create!(email: "williams.williams@gmail.com", password: "123456", role: 0, name: "Aiony Haust", languages: ["Spanish",	"French",	"Arabic"], services: ["Translation", "Appointment"], rate: "34€ p/h", district: ["Friedrichshain-Kreuzberg", "Charlottenburg-Wilmersdorf"], description: "Tennis champion & entrepreneur")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877766/paperw%C3%B6rker/profile%20pictures/aiony-haust_bmimmk.jpg")
+paper_worker_williams.photo.attach(io: file, filename: "aiony-haust.jpeg", content_type: "image/jpeg")
+paper_worker_williams.save
+
+paper_worker_streep = User.create!(email: "streep.streep@gmail.com", password: "123456", role: 0, name: "Jack Finnigan", languages: ["Spanish",	"French",	"English"], services: ["Translation", "Appointment"], rate: "56€ p/h", district: ["Friedrichshain-Kreuzberg", "Charlottenburg-Wilmersdorf"], description: "Award-winning actress & philanthropist")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877765/paperw%C3%B6rker/profile%20pictures/jack-finnigan_dlvu5u.jpg")
+paper_worker_streep.photo.attach(io: file, filename: "jack-finnigan.jpeg", content_type: "image/jpeg")
+paper_worker_streep.save
 
 paper_worker_marlene = User.create!(email: "marlene.marlene@gmail.com", password: "123456", role: 0, name: "Gabriel Silverio", languages: ["German", "English", "Polish"], services: ["Translation", "Appointment"], rate: "100€ p/h", district: ["Neukölln"], description: "Legendary film icon")
 file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877778/paperw%C3%B6rker/profile%20pictures/gabriel-silverio_aszf6o.jpg")
@@ -151,40 +163,25 @@ file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877768/p
 paper_worker_picard.photo.attach(io: file, filename: "austin-wade.jpeg", content_type: "image/jpeg")
 paper_worker_picard.save
 
-paper_worker_vader = User.create!(email: "vader.vader@gmail.com", password: "123456", role: 0, name: "Cesar Rincon", languages: ["Spanish",	"Korean",	"English"], services: ["Legal",	"Appointment"], rate: "43€ p/h", district: ["Treptow-Köpenick", "Steglitz-Zehlendorf"], description: "Former Jedi turned Sith Lord")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877770/paperw%C3%B6rker/profile%20pictures/cesar-rincon_ynexyn.jpg")
-paper_worker_vader.photo.attach(io: file, filename: "cesar-rincon.jpeg", content_type: "image/jpeg")
-paper_worker_vader.save
+paper_worker_luca = User.create!(email: "luca.luca@gmail.com", password: "123456", role: 0, name: "Luca Kraus", languages: ["German", "English", "Spanish"], services: ["Translation", "Appointment"], rate: "60€ p/h", district: ["Charlottenburg-Wilmersdorf", "Spandau"], description: "Hey there! I'm Luca and I love German bureaucracy. The more complicated the better. Official documents, letters no one understands, and non-digital communication are my passions.")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/Luca_mk2snl.jpg")
+paper_worker_luca.photo.attach(io: file, filename: "Luca.jpeg", content_type: "image/jpeg")
+paper_worker_luca.save
 
-paper_worker_lannister = User.create!(email: "lannister.lannister@gmail.com", password: "123456", role: 0, name: "Jimmy Fermin", languages: ["English",	"French",	"Portuguese"], services: ["Legal",	"Appointment"], rate: "65€ p/h", district: ["Charlottenburg-Wilmersdorf",	"Spandau"], description: "Queen of the Seven Kingdoms")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877770/paperw%C3%B6rker/profile%20pictures/jimmy-fermin_p5i4xg.jpg")
-paper_worker_lannister.photo.attach(io: file, filename: "jimmy-fermin.jpeg", content_type: "image/jpeg")
-paper_worker_lannister.save
+paper_worker_akram = User.create!(email: "akram.akram@gmail.com", password: "123456", role: "paperworker", name: "Akram Hassan", languages: ["German", "English", "Arabic"], services: ["Translation", "Legal"], rate: "50€ p/h", district: ["Charlottenburg-Wilmersdorf"], description: "I like coding and fashion; on weekends I challenge my friends to walk-offs")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375924/paperw%C3%B6rker/profile%20pictures/Akram_cuunl0.jpg")
+paper_worker_akram.photo.attach(io: file, filename: "Akram.jpeg", content_type: "image/jpeg")
+paper_worker_akram.save
 
-paper_worker_curie = User.create!(email: "curie.curie@gmail.com", password: "123456", role: 0, name: "Ayo Ogunseinde", languages: ["Pashto",	"Russian", "Polish"], services: ["Translation", 	"Legal",	"Appointment"], rate: "25€ p/h", district: ["Mitte", "Pankow"], description: "Nobel Prize-winning physicist & chemist")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877766/paperw%C3%B6rker/profile%20pictures/ayo-ogunseinde_yktl7d.jpg")
-paper_worker_curie.photo.attach(io: file, filename: "ayo-ogunseinde.jpeg", content_type: "image/jpeg")
-paper_worker_curie.save
+paper_worker_felix = User.create!(email: "felix.felix@gmail.com", password: "123456", role: 0, name: "Felix Cramer", languages: ["German", "English", "Spanish"], services: ["Appointment", "Translation"], rate: "35€ p/h", district: ["Friedrichshain-Kreuzberg", "Pankow"], description: "I love hunting with my cousin in his big old truck, yeehaw!")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/felix_fmmdzo.jpg")
+paper_worker_felix.photo.attach(io: file, filename: "felix.jpeg", content_type: "image/jpeg")
+paper_worker_felix.save
 
-paper_worker_hawking = User.create!(email: "hawking.hawking@gmail.com", password: "123456", role: 0, name: "Toa Heftiba", languages: ["English", "French", "Persian"], services: ["Translation", 	"Legal",	"Appointment"], rate: "85€ p/h", district: ["Treptow-Köpenick",	"Lichtenberg"], description: "Theoretical physicist & author")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877765/paperw%C3%B6rker/profile%20pictures/toa-heftiba_rxjbzq.jpg")
-paper_worker_hawking.photo.attach(io: file, filename: "toa-heftiba.jpeg", content_type: "image/jpeg")
-paper_worker_hawking.save
-
-paper_worker_goodall = User.create!(email: "goodall.goodall@gmail.com", password: "123456", role: 0, name: "Joseph Gonzalez", languages: ["Spanish",	"French",	"Arabic"], services: ["Translation", 	"Legal",	"Appointment"], rate: "85€ p/h", district: ["Friedrichshain-Kreuzberg",	"Marzahn-Hellersdorf"], description: "Primatologist & conservationist")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877767/paperw%C3%B6rker/profile%20pictures/joseph-gonzalez_ifgth8.jpg")
-paper_worker_goodall.photo.attach(io: file, filename: "joseph-gonzalez.jpeg", content_type: "image/jpeg")
-paper_worker_goodall.save
-
-paper_worker_williams = User.create!(email: "williams.williams@gmail.com", password: "123456", role: 0, name: "Aiony Haust", languages: ["Spanish",	"French",	"Arabic"], services: ["Translation", "Appointment"], rate: "34€ p/h", district: ["Friedrichshain-Kreuzberg", "Charlottenburg-Wilmersdorf"], description: "Tennis champion & entrepreneur")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877766/paperw%C3%B6rker/profile%20pictures/aiony-haust_bmimmk.jpg")
-paper_worker_williams.photo.attach(io: file, filename: "aiony-haust.jpeg", content_type: "image/jpeg")
-paper_worker_williams.save
-
-paper_worker_streep = User.create!(email: "streep.streep@gmail.com", password: "123456", role: 0, name: "Jack Finnigan", languages: ["Spanish",	"French",	"English"], services: ["Translation", "Appointment"], rate: "56€ p/h", district: ["Friedrichshain-Kreuzberg", "Charlottenburg-Wilmersdorf"], description: "Award-winning actress & philanthropist")
-file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678877765/paperw%C3%B6rker/profile%20pictures/jack-finnigan_dlvu5u.jpg")
-paper_worker_streep.photo.attach(io: file, filename: "jack-finnigan.jpeg", content_type: "image/jpeg")
-paper_worker_streep.save
+paper_worker_katja = User.create!(email: "katja.katja@gmail.com", password: "123456", role: 0, name: "Katja Löffler", languages: ["German", "Ukrainian", "English"], services: ["Translation"], rate: "40€ p/h", district: ["Mitte", "Pankow"], description: "I enjoy writing code and doing my laundry on Thursday, so I don't need to do it on the weekend")
+file = URI.open("https://res.cloudinary.com/dxrk5d6qu/image/upload/v1678375925/paperw%C3%B6rker/profile%20pictures/katja_nx27om.jpg")
+paper_worker_katja.photo.attach(io: file, filename: "katja.jpeg", content_type: "image/jpeg")
+paper_worker_katja.save
 
 appointment_one = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_angela.id, immigrant_id: immigrant_aleksandr.id)
 
