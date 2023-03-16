@@ -207,4 +207,20 @@ review_five = Review.create!(rating: 5, comment: "She was very nice and knew exa
 
 review_six = Review.create!(rating: 5, comment: "She's got the organizational skills of Marie Kondo! I'd vote for her any day.", user_id: immigrant_piros.id, reviewee_id: paper_worker_angela.id, appointment_id: appointment_six.id)
 
+
+
+appointment_1 = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_luca.id, immigrant_id: immigrant_aleksandr.id)
+
+appointment_2 = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_luca.id, immigrant_id: immigrant_ara.id)
+
+appointment_3 = Appointment.create!(date: Date.yesterday, status: "accepted", paperworker_id: paper_worker_luca.id, immigrant_id: immigrant_pedro.id)
+
+review_1 = Review.create!(rating: 5, comment: "Best appointment of my life.", user_id: immigrant_aleksandr.id, reviewee_id: paper_worker_luca.id, appointment_id: appointment_1.id)
+
+review_2 = Review.create!(rating: 5, comment: "Punctual, efficient, and super nice", user_id: immigrant_ara.id, reviewee_id: paper_worker_luca.id, appointment_id: appointment_2.id)
+
+review_3 = Review.create!(rating: 5, comment: "He knows everything about German bureaucracy", user_id: immigrant_pedro.id, reviewee_id: paper_worker_luca.id, appointment_id: appointment_3.id)
+
+
+
 puts "bye"

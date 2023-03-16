@@ -27,7 +27,7 @@
               <% @reviews.each do |review| %>
                 <%rating_average += review.rating %>
               <% end %>
-              <p>Average rating: <%= rating_average.to_f.round(2) / @reviews.size.round %></p>
+              <p>Average rating: <%= (rating_average.to_f / @reviews.size).round(1) %></p>
                 <% @reviews.each do |review| %>
                     <div class="comment-and-rating">
                     <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>
