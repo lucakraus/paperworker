@@ -6,7 +6,7 @@
   <p><%= message.content %></p>
   <% if message.photo.attached?%>
   <a href="<%= cl_image_path message.photo.key %>" target="_blank">
-    <%= cl_image_tag message.photo.key, height: 200, width: 100, crop: :fill %>
+    <%= cl_image_tag message.photo.key, height: 200, crop: :fill %>
     </a>
   <% end %>
   </div>
