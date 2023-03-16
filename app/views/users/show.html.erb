@@ -21,13 +21,13 @@
         <%= @paperworker.description %>
       </div>
       <div class="rating-show-page">
-        <h4> <%=@paperworker.name%>'s reviews </h4>
+        <h4> Reviews </h4>
             <% unless @reviews.empty? %>
               <% rating_average = 0 %>
               <% @reviews.each do |review| %>
                 <%rating_average += review.rating %>
               <% end %>
-              <p>Average rating: <%= rating_average.to_f / @reviews.size %></p>
+              <p>Average rating: <%= rating_average.to_f.round(2) / @reviews.size.round %></p>
                 <% @reviews.each do |review| %>
                     <div class="comment-and-rating">
                     <p><strong><%= review.comment %> </strong> <em>by <%= review.user.name %> </em></p>

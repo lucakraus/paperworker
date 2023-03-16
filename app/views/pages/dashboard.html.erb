@@ -116,7 +116,6 @@
                   <%= cl_image_tag appointment.paperworker.photo.key, :transformation=>[ {:width=>350, :crop=>"scale"}, {:fetch_format=>:auto}], class: "image-appointment"%>
                   <div class="text-upcoming">
                   <h6> <em>Appointment with <strong><%= appointment.paperworker.name %> </strong> DONE</em> </i></h6>
-                  <p>Date: <%= appointment.date.strftime("%Y-%m-%d")%></p>
                   </div>
 
                   <div class="chat-button">
